@@ -1,5 +1,3 @@
-# jarvis.mirrorui
-
 # Jarvis: Mirror UI
 
 UI interface for presenting on a monitor behind a two way mirror.

@@ -1,18 +1,18 @@
 var sources = new Array("bbc-news")
 
-function startNews(pageLocation) {
+function startNews(pageLocation, serviceIP) {
 	
 	function GetNews() {
 		// Retrieve news from server
 		//
-		qry =  "?sources=";
-		for (x = 0; x < sources.length; x++) {
-			qry +=  " " + sources[x];
-		}
-		qry +=  "&sortby=latest";
+//		qry =  "?sources=";
+//		for (x = 0; x < sources.length; x++) {
+//			qry +=  " " + sources[x];
+//		}
+//		qry +=  "&sortby=latest";
 		//
-		var theUri = "/data/info/news/articles" + qry;
-		httpGetAsync(theUri, createNews);
+		var theUri = "/news/headlines/sources";
+		httpGetAsync(serviceIP, theUri, createNews);
 		// (as XMLHttpRequest is being used async,
 		// return the createNews as callback)
 		//

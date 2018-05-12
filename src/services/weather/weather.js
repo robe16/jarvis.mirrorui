@@ -2,13 +2,13 @@ var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","
 var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");	
 
 
-function startWeather(pageLocation) {
+function startWeather(pageLocation, serviceIP) {
 	
 	function GetWeather() {
 		// Retrieve weather from server
 		//
-		var theUri = "/data/info/weather/forecast";
-		httpGetAsync(theUri, createWeather);
+		var theUri = "/weather/all";
+		httpGetAsync(serviceIP, theUri, createWeather);
 		// (as XMLHttpRequest is being used async,
 		// return the createWeather as callback)
 		//

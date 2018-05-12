@@ -55,7 +55,7 @@ node {
         }
 
         stage("reboot mirror"){
-            sh "ssh ${deployLogin} \"sudo reboot\""
+            sh "ssh ${deployLogin} \"sudo sleep 5 ; reboot\""
         }
 
     } else {

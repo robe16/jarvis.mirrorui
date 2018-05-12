@@ -1,7 +1,4 @@
-// Change the below to match the HomeControl-server IP
-var serverIP = "http://192.168.0.103:1600"
-
-function httpGetAsync(theUri, callback)
+function httpGetAsync(serverIP, theUri, callback)
 {
 	var theUrl = serverIP + theUri
 	//

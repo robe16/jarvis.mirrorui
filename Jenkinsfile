@@ -53,12 +53,12 @@ node {
                 ssh -o StrictHostKeyChecking=no ${deployLogin} \"tar xvzf ${mirrorui_tar} -C ~/jarvis.mirrorui/\"
                 ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm ~/${mirrorui_tar}\"
                 rm ~/${mirrorui_tar}
-            ""
+            """
             //
         }
 
         stage("reboot mirror"){
-            sh "ssh ${deployLogin} \"sudo sleep 5 ; reboot\""
+            sh "ssh ${deployLogin} \"sudo reboot\""
         }
 
     } else {

@@ -1,6 +1,7 @@
 echo "Running Build ID: ${env.BUILD_ID}"
 
 string githubUrl = "https://github.com/robe16/jarvis.mirrorui.git"
+string workspace = "/var/lib/jenkins/jobs/jarvis.mirrorui/workspace"
 String deployLogin
 
 node {
@@ -41,7 +42,7 @@ node {
             }
             //
             // compress folder
-            sh "tar czf ~/${mirrorui_tar} '/src'"
+            sh "tar czf ~/${mirrorui_tar} '${workspace}/src'"
             // xfer tar to deploy server
             sh "scp -v -o StrictHostKeyChecking=no ~/${mirrorui_tar} ${deployLogin}:~"
             // uncompress folder to required directory

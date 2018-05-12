@@ -58,7 +58,8 @@ node {
         }
 
         stage("reboot mirror"){
-            sh "ssh ${deployLogin} \"sudo reboot\""
+            //sh "ssh ${deployLogin} \"sudo reboot\""
+            sh "ssh ${deployLogin} \"sudo shutdown -r\""
         }
 
     } else {

@@ -1,6 +1,12 @@
 .news-container {
-	max-height: 300px;
+	max-height: 400px;
     overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 .article_row {

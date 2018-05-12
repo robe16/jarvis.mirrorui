@@ -38,10 +38,14 @@
 	</head>
 	<body>
 		<script>
+			// Update following variables with required IP and Port details for services
+			weatherIP = "http://192.168.0.102:4080"
+			newsIP = "http://192.168.0.102:4070"
+			//
 			window.onload=function() {
 				startClock('top-left');
-				startWeather('top-right');
-				startNews('bottom-left');
+				startWeather('top-right', weatherIP);
+				startNews('bottom-left', newsIP);
 			}
 		</script>
 		<!-- -->

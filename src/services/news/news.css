@@ -1,0 +1,36 @@
+.news-container {
+	max-height: 300px;
+    overflow-y: scroll;
+}
+
+.article_row {
+	padding: 0 0 10px 0;
+}
+
+.news_img {
+	max-width: 30px;
+	padding: 0 2px 0 0;
+}
+
+.news_title {
+    font-size: 15px;
+    font-weight: bold;
+   }
+
+.news_date {
+    font-size: 10px;
+    padding: 0 2px 0 2px;
+   }
+
+.grayscale {
+  /* IE */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+
+  /* Chrome, Safari */
+  -webkit-filter: grayscale(1);
+
+  /* Firefox */
+  filter: grayscale(1);
+}
+
+.news_img {}

@@ -1,0 +1,43 @@
+body {
+	background-color: black;
+	color: white;
+    font-family: Roboto;
+}
+
+.top {
+	top: 0;
+}
+.bottom {
+	bottom: 0;
+}
+.left {
+	left: 0;
+}
+.middle {
+	left: 50%;
+}
+.middle-bundle-group {
+    transform: translateX(-50%);
+}
+.right {
+	right: 0;
+}
+
+.bundle-group {
+	position: fixed;
+	padding: 10px;
+	/* border: 1px solid red; */
+}
+.bundle {
+	width: 100%;
+}
+
+.bundle-group-1 {
+	width: 100%;
+}
+.bundle-group-2 {
+	width: 48%;
+}
+.bundle-group-3 {
+	width: 29%;
+}

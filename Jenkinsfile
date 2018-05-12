@@ -42,15 +42,18 @@ node {
             }
             //
             // compress folder
-            sh "tar czf ~/${mirrorui_tar} '${workspace}/src'"
             // xfer tar to deploy server
-            sh "scp -v -o StrictHostKeyChecking=no ~/${mirrorui_tar} ${deployLogin}:~"
             // uncompress folder to required directory
-            sh "ssh -o StrictHostKeyChecking=no ${deployLogin} \"tar xvzf ${mirrorui_tar} -C ~/jarvis.mirrorui/\""
             // remove the tar file from deploy server
-            sh "ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm ~/${mirrorui_tar}\""
             // remove the tar file from cicd server
-            sh "rm ~/${mirrorui_tar}"
+            sh """
+                cd ${workspace}
+                tar czf ~/${mirrorui_tar} 'src/'
+                scp -v -o StrictHostKeyChecking=no ~/${mirrorui_tar} ${deployLogin}:~
+                ssh -o StrictHostKeyChecking=no ${deployLogin} \"tar xvzf ${mirrorui_tar} -C ~/jarvis.mirrorui/\"
+                ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm ~/${mirrorui_tar}\"
+                rm ~/${mirrorui_tar}
+            ""
             //
         }
 

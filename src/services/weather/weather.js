@@ -56,7 +56,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// weather glyph
 				var glyphTodayType = document.createElement("I");
-				glyphTodayType.className = "material-text-light-disabled weather_type_glyph_dy wi " + getWeatherType_glyph(daytime["weather_type"]);
+				glyphTodayType.className = "material-text-light-secondary weather_type_glyph_dy wi " + getWeatherType_glyph(daytime["weather_type"]);
 				var divTodayType = document.createElement("DIV");
 				divTodayType.className = "col-xs-6 weather_detail_type align_left";
 				divTodayType.appendChild(glyphTodayType);
@@ -82,7 +82,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// Sunrise
 				var glyphSunrise = document.createElement("I");
-				glyphSunrise.className = "material-text-light-disabled weather_type_glyph_hr wi wi-sunrise";
+				glyphSunrise.className = "material-text-light-secondary weather_type_glyph_hr wi wi-sunrise";
 				glyphSunrise.style.padding = "10px 0px 0px 0px";
 				var divSunriseG = document.createElement("DIV");
 				divSunriseG.className = "col-xs-1 weather_detail";
@@ -93,7 +93,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// Sunset
 				var glyphSunset = document.createElement("I");
-				glyphSunset.className = "material-text-light-disabled weather_type_glyph_hr wi wi-sunrise";
+				glyphSunset.className = "material-text-light-secondary weather_type_glyph_hr wi wi-sunrise";
 				glyphSunset.style.padding = "10px 0px 0px 0px";
 				var divSunsetG = document.createElement("DIV");
 				divSunsetG.className = "col-xs-1 weather_detail";
@@ -113,7 +113,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// wind
 				var glyphWind = document.createElement("I");
-				glyphWind.className = "material-text-light-disabled weather_type_glyph_hr glyphicon glyphicon-flag";
+				glyphWind.className = "material-text-light-secondary weather_type_glyph_hr glyphicon glyphicon-flag";
 				glyphWind.style.padding = "10px 0px 0px 0px";
 				var divWindG = document.createElement("DIV");
 				divWindG.className = "col-xs-1 weather_detail";
@@ -124,7 +124,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// rain
 				var glyphRain = document.createElement("I");
-				glyphRain.className = "material-text-light-disabled weather_type_glyph_hr wi wi-raindrop";
+				glyphRain.className = "material-text-light-secondary weather_type_glyph_hr wi wi-raindrop";
 				glyphRain.style.padding = "10px 0px 0px 0px";
 				var divRainG = document.createElement("DIV");
 				divRainG.className = "col-xs-1 weather_detail";
@@ -144,7 +144,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// visibility
 				var glyphVisibility = document.createElement("I");
-				glyphVisibility.className = "material-text-light-disabled weather_type_glyph_hr glyphicon glyphicon-eye-open";
+				glyphVisibility.className = "material-text-light-secondary weather_type_glyph_hr glyphicon glyphicon-eye-open";
 				glyphVisibility.style.padding = "10px 10px 0px 0px";
 				var divVisibilityG = document.createElement("DIV");
 				divVisibilityG.className = "col-xs-1 weather_detail align_right temp_div";
@@ -155,7 +155,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// uv
 				var glyphUv = document.createElement("I");
-				glyphUv.className = "material-text-light-disabled weather_type_glyph_hr glyphicon glyphicon-sunglasses";
+				glyphUv.className = "material-text-light-secondary weather_type_glyph_hr glyphicon glyphicon-sunglasses";
 				glyphUv.style.padding = "10px 5px 0px 0px";
 				var divUvG = document.createElement("DIV");
 				divUvG.className = "col-xs-1 weather_detail align_right temp_div";
@@ -174,7 +174,7 @@ function startWeather(pageLocation, serviceIP) {
 				weatherDiv.appendChild(rowDiv);
 				//
 				var divider = document.createElement("HR");
-				divider.className = "weather_divider material-text-light-disabled";
+				divider.className = "weather_divider material-text-light-secondary";
 				var rowDiv = document.createElement("DIV");
 				rowDiv.className = "row";
 				rowDiv.appendChild(divider);
@@ -186,7 +186,7 @@ function startWeather(pageLocation, serviceIP) {
 				var x = document.createElement("DIV");
 				//
 				var divDay = document.createElement("DIV");
-				divDay.className = "col-xs-3 weather_detail material-text-light-disabled";
+				divDay.className = "col-xs-3 weather_detail material-text-light-secondary";
 				divDay.innerHTML = strDay;
 				//
 				var glyphType = document.createElement("I");

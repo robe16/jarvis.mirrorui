@@ -56,7 +56,7 @@ function startNews(pageLocation, serviceIP) {
 			divTitleArticle.className = "col-xs-9 news_title"; //col-xs-8 when logo present
 			divTitleArticle.innerHTML = headline;
 			var divTitleDatetime = document.createElement("DIV");
-			divTitleDatetime.className = "col-xs-3 material-text-light-disabled news_date";
+			divTitleDatetime.className = "col-xs-3 material-text-light-secondary news_date";
 			divTitleDatetime.innerHTML = articleDatetime;
 			//
 			var rowDiv = document.createElement("DIV");

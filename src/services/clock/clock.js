@@ -14,7 +14,7 @@ function startClock(pageLocation) {
 		var time=""+nhour+":"+nmin+"";
 		//
 		var dateDiv = document.createElement("DIV");
-		dateDiv.className = "date material-text-light-disabled";
+		dateDiv.className = "date material-text-light-secondary";
 		dateDiv.innerHTML=date;
 		//
 		var timeDiv = document.createElement("DIV");

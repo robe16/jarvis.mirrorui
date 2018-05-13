@@ -24,8 +24,9 @@
    }
 
 .news_date {
-    font-size: 10px;
+    font-size: 12px;
     padding: 0 2px 0 2px;
+    font-weight: bold;
    }
 
 .grayscale {

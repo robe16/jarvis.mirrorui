@@ -186,7 +186,7 @@ function startWeather(pageLocation, serviceIP) {
 				var x = document.createElement("DIV");
 				//
 				var divDay = document.createElement("DIV");
-				divDay.className = "col-xs-3 weather_detail material-text-light-secondary";
+				divDay.className = "col-xs-3 weather_detail day_name material-text-light-secondary";
 				divDay.innerHTML = strDay;
 				//
 				var glyphType = document.createElement("I");

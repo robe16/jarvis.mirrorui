@@ -74,7 +74,7 @@ node {
 
         stage("start container"){
             // Stop existing container if running
-            sh "ssh ${deployLogin} \"docker rm -f ${params.serviceID} && echo \"container ${params.serviceID} removed\" || echo \"container ${params.serviceID} does not exist\"\""
+            sh "ssh ${deployLogin} \"docker rm -f ${serviceID} && echo \"container ${serviceID} removed\" || echo \"container ${serviceID} does not exist\"\""
             // Start new container
             sh "ssh ${deployLogin} \"docker run --restart unless-stopped -d ${docker_volumes} --net=host --name ${serviceID} ${docker_img_name_latest}\""
         }

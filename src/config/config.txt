@@ -1,0 +1,11 @@
+// Example config.js file
+
+// Update following variables with required IP and Port details for services
+weatherIP = "http://192.168.0.10x:8081"
+newsIP = "http://192.168.0.10x:8082"
+//
+window.onload=function() {
+    startClock('top-left');
+    startWeather('top-right', weatherIP);
+    startNews('bottom-left', newsIP);
+}

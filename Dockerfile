@@ -11,4 +11,4 @@ WORKDIR /jarvis/mirrorui
 COPY src /jarvis/mirrorui
 
 # Run application
-CMD python -m SimpleHTTPServer
+CMD python3 -m SimpleHTTPServer

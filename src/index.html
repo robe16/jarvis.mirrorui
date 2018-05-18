@@ -34,20 +34,11 @@
 		<link rel="stylesheet" href="static/css/weather-icons.min.css">
 		<link rel="stylesheet" href="static/css/weather-icons-wind.css">
 		<link rel="stylesheet" href="static/css/weather-icons-wind.min.css">
+		<!-- Config and module loading -->
+		<script src="config/config.js"></script>
 		<!-- -->
 	</head>
 	<body>
-		<script>
-			// Update following variables with required IP and Port details for services
-			weatherIP = "http://192.168.0.102:4080"
-			newsIP = "http://192.168.0.102:4070"
-			//
-			window.onload=function() {
-				startClock('top-left');
-				startWeather('top-right', weatherIP);
-				startNews('bottom-left', newsIP);
-			}
-		</script>
 		<!-- -->
 		<div class="bundle-group bundle-group-3 top left">
 			<div id="top-left" class="bundle top left"></div>

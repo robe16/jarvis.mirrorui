@@ -1,7 +1,7 @@
 echo "Running Build ID: ${env.BUILD_ID}"
 
 string githubUrl = "https://github.com/robe16/jarvis.mirrorui.git"
-string serviceID = "mirrorui"
+string serviceID = "jarvis.mirrorui"
 String build_args
 String deployLogin
 String docker_img_name

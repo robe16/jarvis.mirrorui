@@ -34,7 +34,7 @@ node {
         //
     }
 
-	if (params["deploymentServer"]!="*" && params["deploymentUsername"]!="*") {
+	if (params["deploymentServer"]!="*" && params["deploymentUsername"]!="*" && params["fileConfig"]!="*") {
 
         stage("checkout") {
             git url: "${githubUrl}"

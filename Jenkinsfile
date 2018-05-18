@@ -2,7 +2,10 @@ echo "Running Build ID: ${env.BUILD_ID}"
 
 string githubUrl = "https://github.com/robe16/jarvis.mirrorui.git"
 string serviceID = "mirrorui"
+String build_args
 String deployLogin
+String docker_img_name
+def docker_img
 
 node {
 
@@ -18,6 +21,11 @@ node {
         string(name: 'deploymentUsername',
                description: 'Username for the server the files will be deployed to (used for ssh/scp)',
                defaultValue: '*')
+        //
+        build_args = [""].join(" ")
+        //
+        //
+        docker_volumes = [""].join(" ")
         //
         deployLogin = "${params.deploymentUsername}@${params.deploymentServer}"
         //

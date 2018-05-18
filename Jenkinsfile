@@ -1,7 +1,7 @@
 echo "Running Build ID: ${env.BUILD_ID}"
 
 string githubUrl = "https://github.com/robe16/jarvis.mirrorui.git"
-string workspace = "/var/lib/jenkins/jobs/jarvis.mirrorui/workspace"
+string serviceID = "mirrorui"
 String deployLogin
 
 node {
@@ -30,32 +30,45 @@ node {
             sh "git rev-parse HEAD > .git/commit-id"
         }
 
+        docker_img_name_build_id = "${serviceID}:${env.BUILD_ID}"
+        docker_img_name_latest = "${serviceID}:latest"
+
+        stage("build") {
+            try {sh "docker image rm ${docker_img_name_latest}"} catch (error) {}
+            sh "docker build -t ${docker_img_name_build_id} ${build_args} ."
+            sh "docker tag ${docker_img_name_build_id} ${docker_img_name_latest}"
+        }
+
         stage("deploy"){
             //
-            String mirrorui_tar = "mirrorui.tar.gz"
+            String docker_img_tar = "docker_img.tar"
             //
-            // remove any old tar files from cicd server
             try {
-                sh "rm ~/${mirrorui_tar}"
+                // remove any old tar files from cicd server
+                sh "rm ~/${docker_img_tar}"
             } catch(error) {
-                echo "No ${mirrorui_tar} file to remove."
+                echo "No ${docker_img_tar} file to remove."
             }
-            //
-            // compress folder
+            // create tar file of image
+            sh "docker save -o ~/${docker_img_tar} ${docker_img_name_build_id}"
             // xfer tar to deploy server
-            // uncompress folder to required directory
+            sh "scp -v -o StrictHostKeyChecking=no ~/${docker_img_tar} ${deployLogin}:~"
+            // load tar into deploy server registry
+            sh "ssh -o StrictHostKeyChecking=no ${deployLogin} \"docker load -i ~/${docker_img_tar}\""
             // remove the tar file from deploy server
+            sh "ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm ~/${docker_img_tar}\""
             // remove the tar file from cicd server
-            sh """
-                cd ${workspace}
-                tar czf ~/${mirrorui_tar} 'src/'
-                scp -v -o StrictHostKeyChecking=no ~/${mirrorui_tar} ${deployLogin}:~
-                ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm -r ~/jarvis.mirrorui/src\"
-                ssh -o StrictHostKeyChecking=no ${deployLogin} \"tar xvzf ${mirrorui_tar} -C ~/jarvis.mirrorui/\"
-                ssh -o StrictHostKeyChecking=no ${deployLogin} \"rm ~/${mirrorui_tar}\"
-                rm ~/${mirrorui_tar}
-            """
+            sh "rm ~/${docker_img_tar}"
+            // Set 'latest' tag to most recently created docker image
+            sh "ssh -o StrictHostKeyChecking=no ${deployLogin} \"docker tag ${docker_img_name_build_id} ${docker_img_name_latest}\""
             //
+        }
+
+        stage("start container"){
+            // Stop existing container if running
+            sh "ssh ${deployLogin} \"docker rm -f ${params.serviceID} && echo \"container ${params.serviceID} removed\" || echo \"container ${params.serviceID} does not exist\"\""
+            // Start new container
+            sh "ssh ${deployLogin} \"docker run --restart unless-stopped -d ${docker_volumes} --net=host --name ${params.serviceID} ${docker_img_name_latest}\""
         }
 
         stage("reboot mirror"){

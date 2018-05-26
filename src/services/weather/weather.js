@@ -93,7 +93,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// Sunset
 				var glyphSunset = document.createElement("I");
-				glyphSunset.className = "material-text-light-secondary weather_type_glyph_hr wi wi-sunrise";
+				glyphSunset.className = "material-text-light-secondary weather_type_glyph_hr wi wi-sunset";
 				glyphSunset.style.padding = "10px 0px 0px 0px";
 				var divSunsetG = document.createElement("DIV");
 				divSunsetG.className = "col-xs-1 weather_detail";

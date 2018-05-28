@@ -1,17 +1,12 @@
-var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");	
-
-
 function startClock(pageLocation) {
 	
 	function GetClock() {
-		var d=new Date();
-		var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
-		var nhour=d.getHours(),nmin=d.getMinutes();
-		if(nmin<=9) nmin="0"+nmin
+	    //
 		//
-		var date=""+tday[nday]+", "+ndate+" "+tmonth[nmonth]+" "+nyear+"";
-		var time=""+nhour+":"+nmin+"";
+		var d = moment();
+		//
+		var date = d.format("dddd Do MMM YYYY");
+		var time = d.format("HH:mm");
 		//
 		var dateDiv = document.createElement("DIV");
 		dateDiv.className = "date material-text-light-secondary";

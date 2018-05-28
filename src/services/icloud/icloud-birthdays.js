@@ -3,12 +3,11 @@ function startBirthdays(pageLocation, serviceIP) {
 	function getBirthdays() {
 		// Retrieve birthdays from server
 		//
-		var today = new Date();
-		var y = today.getFullYear(), m = today.getMonth() + 1, d = today.getDate();
-		// Note that month numbers start at 0 (hence '+ 1')
+		var fromDateObj = moment();
+		var toDateObj = moment().add(1, 'months');
 		//
-		var date_from = y + "-" + addZ(m) + "-" + addZ(d);
-		var date_to = y + "-" + addZ(m + 1) + "-" + addZ(d);
+		var date_from = fromDateObj.format("YYYY-MM-DD");
+		var date_to = toDateObj.format("YYYY-MM-DD");
 		//
 		var theUri = "/icloud/birthdays/daterange/datefrom/" + date_from + "/dateto/" + date_to;
 		httpGetAsync(serviceIP, theUri, createBirthdays);

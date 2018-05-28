@@ -67,7 +67,17 @@ function startBirthdays(pageLocation, serviceIP) {
                 rowDiv.appendChild(divBirthdayDate);
                 rowDiv.appendChild(divBirthdayName);
                 //
-                tempBirthdays[birthdayDateObj.format("YYYY-MM-DD")] = rowDiv;
+                // If current month is December (12), then next month will be January (01) - this means
+                // listing the tempBirthdays array based on month first will give incorrect ordering of dates.
+                // To rectify this, the current year is added, unless the month number is before current month,
+                // in which case use the following years number.
+                if (birthdayDateObj.format("MM") < moment().format("MM")) {
+                    y = moment().add(1, 'years').format("YYYY"))
+                } else {
+                    y = moment().format("YYYY"))
+                }
+                //
+                tempBirthdays[birthdayDateObj.format(y + "-MM-DD")] = rowDiv;
                 //
             }
 		}

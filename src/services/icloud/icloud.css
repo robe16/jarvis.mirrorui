@@ -1,0 +1,33 @@
+.birthday-container {
+	/*max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;*/
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.birthday_row {
+	padding: 0 0 0px 0;
+	margin-left: 10px;
+}
+
+.birthday_title {
+    font-size: 17px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.birthday_name {
+    font-size: 15px;
+    font-weight: bold;
+   }
+
+.birthday_date {
+    font-size: 12px;
+    padding: 0 2px 0 2px;
+    font-weight: bold;
+   }

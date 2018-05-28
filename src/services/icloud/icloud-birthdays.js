@@ -72,9 +72,9 @@ function startBirthdays(pageLocation, serviceIP) {
                 // To rectify this, the current year is added, unless the month number is before current month,
                 // in which case use the following years number.
                 if (birthdayDateObj.format("MM") < moment().format("MM")) {
-                    y = moment().add(1, 'years').format("YYYY"))
+                    y = moment().add(1, 'years').format("YYYY");
                 } else {
-                    y = moment().format("YYYY"))
+                    y = moment().format("YYYY");
                 }
                 //
                 tempBirthdays[birthdayDateObj.format(y + "-MM-DD")] = rowDiv;

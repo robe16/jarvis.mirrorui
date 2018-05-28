@@ -2,11 +2,8 @@ function startClock(pageLocation) {
 	
 	function GetClock() {
 	    //
-		//
-		var d = moment();
-		//
-		var date = d.format("dddd Do MMM YYYY");
-		var time = d.format("HH:mm");
+		var date = moment().format("dddd Do MMM YYYY");
+		var time = moment().format("HH:mm");
 		//
 		var dateDiv = document.createElement("DIV");
 		dateDiv.className = "date material-text-light-secondary";

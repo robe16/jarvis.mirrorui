@@ -67,7 +67,7 @@ function startBirthdays(pageLocation, serviceIP) {
                 rowDiv.appendChild(divBirthdayDate);
                 rowDiv.appendChild(divBirthdayName);
                 //
-                tempBirthdays[birthdayDateObj.format("MM-DD")] = rowDiv;
+                tempBirthdays[birthdayDateObj.format("YYYY-MM-DD")] = rowDiv;
                 //
             }
 		}

@@ -79,7 +79,7 @@ node {
             // Stop existing container if running
             sh "ssh ${deployLogin} \"docker rm -f ${serviceID} && echo \"container ${serviceID} removed\" || echo \"container ${serviceID} does not exist\"\""
             // Start new container
-            sh "ssh ${deployLogin} \"docker run --restart unless-stopped -d ${docker_volumes} --net=host --name ${serviceID} ${docker_img_name_latest}\""
+            sh "ssh ${deployLogin} \"docker run --restart unless-stopped -e TZ=Europe/London -d ${docker_volumes} --net=host --name ${serviceID} ${docker_img_name_latest}\""
         }
 
         stage("reboot mirror"){

@@ -16,6 +16,8 @@ function startWeather(pageLocation, serviceIP) {
 	
 	function createWeather(data) {
 		//
+		var today = moment().format("YYYY-MM-DD");
+		//
 		var weatherDiv = document.createElement("DIV");
 		weatherDiv.className = "weather-container";
 		//
@@ -23,10 +25,14 @@ function startWeather(pageLocation, serviceIP) {
 		dataJson = JSON.parse(data);
 		//
 		var town = dataJson.location.name;
-		var forecast = dataJson.days;
+		var forecastDays = dataJson.days;
 		//
-		for (d = 0; d < Object.keys(forecast).length; d++) {
-			var day_item = forecast[d];
+		forecastDaysKeys = Object.keys(forecastDays).sort();
+		//
+		for (d in forecastDaysKeys) {
+		    day_key = forecastDaysKeys[d];
+		    //
+			var day_item = forecastDays[day_key];
 			var daytime = day_item.daytime;
 //		    var nighttime = day_item.nighttime;
 //		    var hourly = day_item["3hourly"];
@@ -51,7 +57,7 @@ function startWeather(pageLocation, serviceIP) {
 		    var sunset = sunsetDateObj.format("HH:mm");
 		    //
 			//
-			if (d==0) {
+			if (day_key == today) {
 				// Create top row with today's weather type glyph and temperature
 				//
 				// weather glyph
@@ -180,6 +186,10 @@ function startWeather(pageLocation, serviceIP) {
 				rowDiv.appendChild(divider);
 				//
 				weatherDiv.appendChild(rowDiv);
+				//
+				//
+				// TODO - 3 hourly - next X slots dependant on width
+				//
 				//
 			} else {
 				// Create individual rows for each day of the coming week

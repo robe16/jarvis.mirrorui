@@ -100,11 +100,14 @@ p.temp_unit_hour {
     margin-top: 10px;
     display: flex;
 }
-.hourly_item {
+.hourly_items {
+    margin-right: 15px;
+}
+/*.hourly_item {
     display: block;
     text-align: center;
     width: 12.5%;
-}
+}*/
 .weather_type_glyph_hr {
     padding: 10px 0px 10px 0px;
     font-size: 20px;
@@ -113,6 +116,10 @@ p.temp_unit_hour {
 .time_header {
     font-size: 16px;
     font-weight: 400;
+}
+
+.center {
+    text-align: center;
 }
 
 

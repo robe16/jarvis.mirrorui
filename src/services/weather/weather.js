@@ -195,7 +195,7 @@ function startWeather(pageLocation, serviceIP) {
                 forecastHoursKeys = Object.keys(forecastHours).sort();
 				//
 				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row";
+				rowDiv.className = "row hourly_items";
                 //
                 var first_hour_key = 0;
                 //
@@ -218,7 +218,7 @@ function startWeather(pageLocation, serviceIP) {
                     hour_key = forecastHoursKeys[h];
                     hour_item = forecastHours[hour_key]
                     //
-                    if (hr_count == 6) {break;}
+                    if (hr_count == 4) {break;}
                     //
                     var divHour = document.createElement("DIV");
                     divHour.className = "weather_detail day_name";
@@ -242,12 +242,18 @@ function startWeather(pageLocation, serviceIP) {
                     divTemp.appendChild(tempHour);
                     divTemp.appendChild(tempUnit);
                     //
+                    // Precipitation
+                    var divRain = document.createElement("DIV");
+                    divRain.className = "material-text-light-secondary weather_detail";
+                    divRain.innerHTML = hour_item.precipitation_prob + rain_unit;
+                    //
                     //
                     var hourDiv = document.createElement("DIV");
-                    hourDiv.className = "col-xs-2";
+                    hourDiv.className = "col-xs-3 center";
 				    hourDiv.appendChild(divHour);
 				    hourDiv.appendChild(glyphType);
 				    hourDiv.appendChild(divTemp);
+				    hourDiv.appendChild(divRain);
                     //
 				    rowDiv.appendChild(hourDiv);
 				    //

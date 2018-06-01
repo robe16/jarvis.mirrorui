@@ -29,25 +29,28 @@ function startWeather(pageLocation, serviceIP) {
 		//
 		forecastDaysKeys = Object.keys(forecastDays).sort();
 		//
+        var temp_unit = dataJson.units.daily.temp;
+        var wind_unit = dataJson.units.daily.wind_speed;
+        var rain_unit = dataJson.units.daily.precipitation_prob;
+		//
+		//
 		for (d in forecastDaysKeys) {
 		    day_key = forecastDaysKeys[d];
 		    //
 			var day_item = forecastDays[day_key];
 			var daytime = day_item.daytime;
 //		    var nighttime = day_item.nighttime;
-//		    var hourly = day_item["3hourly"];
 			//
 		    var dateObj = moment(day_item.date, "YYYY-MM-DD");
 		    var strDay = dateObj.format("ddd");
 		    var strDate = dateObj.format("Do MMMM");
 		    //
+		    if (dateObj < moment() && strDate != moment().format("Do MMMM")) {continue;}
+		    //
 		    var type_key = daytime.weather_type;
 		    var temp = daytime.temp;
-		    var temp_unit = dataJson.units.daily.temp;
 		    var wind = daytime.wind_speed;
-		    var wind_unit = dataJson.units.daily.wind_speed;
 		    var rain = daytime.precipitation_prob;
-		    var rain_unit = dataJson.units.daily.precipitation_prob;
 		    var visibility = daytime.visibility;
 		    var uv = daytime.uv_index;
 		    //
@@ -62,7 +65,7 @@ function startWeather(pageLocation, serviceIP) {
 				//
 				// weather glyph
 				var glyphTodayType = document.createElement("I");
-				glyphTodayType.className = "material-text-light-secondary weather_type_glyph_dy wi " + getWeatherType_glyph(daytime["weather_type"]);
+				glyphTodayType.className = "material-text-light-secondary weather_type_glyph_dy wi " + getWeatherType_glyph(daytime.weather_type);
 				var divTodayType = document.createElement("DIV");
 				divTodayType.className = "col-xs-6 weather_detail_type align_left";
 				divTodayType.appendChild(glyphTodayType);
@@ -188,19 +191,90 @@ function startWeather(pageLocation, serviceIP) {
 				weatherDiv.appendChild(rowDiv);
 				//
 				//
-				// TODO - 3 hourly - next X slots dependant on width
+                var forecastHours = day_item["3hourly"];
+                forecastHoursKeys = Object.keys(forecastHours).sort();
 				//
+				var rowDiv = document.createElement("DIV");
+				rowDiv.className = "row";
+                //
+                var first_hour_key = 0;
+                //
+                for (h in forecastHoursKeys) {
+                    hour_key = forecastHoursKeys[h];
+                    hour_item = forecastHours[hour_key]
+                    //
+		            var hour_as_time = moment(hour_item.time, "YYYY-MM-DD");
+                    //
+                    if (hour_as_time < moment()) {
+                        first_hour_key = hour_key;
+                    } else {
+                        break;
+                    }
+				    //
+                }
+                //
+                var hr_count = 0;
+                for (h in forecastHoursKeys) {
+                    hour_key = forecastHoursKeys[h];
+                    hour_item = forecastHours[hour_key]
+                    //
+                    if (hr_count == 6) {break;}
+                    //
+                    var divHour = document.createElement("DIV");
+                    divHour.className = "weather_detail day_name";
+                    divHour.innerHTML = hour_item.time;
+                    //
+                    // weather glyph
+                    var glyphType = document.createElement("I");
+                    glyphType.className = "material-text-light-secondary weather_type_glyph_hr wi " + getWeatherType_glyph(hour_item.weather_type);
+//                    var divType = document.createElement("DIV");
+//                    divType.className = "weather_detail_type align_left";
+//                    divType.appendChild(glyphType);
+                    //
+                    // temperature
+                    var tempHour = document.createElement("P");
+                    tempHour.innerHTML = hour_item.temp;
+                    var tempUnit = document.createElement("P");
+                    tempUnit.className = "temp_unit_hour";
+                    tempUnit.innerHTML = temp_unit;
+                    var divTemp = document.createElement("DIV");
+                    divTemp.className = "material-text-light-secondary weather_detail temp_div";
+                    divTemp.appendChild(tempHour);
+                    divTemp.appendChild(tempUnit);
+                    //
+                    //
+                    var hourDiv = document.createElement("DIV");
+                    hourDiv.className = "col-xs-2";
+				    hourDiv.appendChild(divHour);
+				    hourDiv.appendChild(glyphType);
+				    hourDiv.appendChild(divTemp);
+                    //
+				    rowDiv.appendChild(hourDiv);
+				    //
+				    hr_count += 1;
+				    //
+                }
+				//
+				weatherDiv.appendChild(rowDiv);
+				//
+				//
+				var divider = document.createElement("HR");
+				divider.className = "weather_divider material-text-light-secondary";
+				var rowDiv = document.createElement("DIV");
+				rowDiv.className = "row";
+				rowDiv.appendChild(divider);
+				//
+				weatherDiv.appendChild(rowDiv);
 				//
 			} else {
 				// Create individual rows for each day of the coming week
-				var x = document.createElement("DIV");
 				//
 				var divDay = document.createElement("DIV");
 				divDay.className = "col-xs-3 weather_detail day_name material-text-light-secondary";
 				divDay.innerHTML = strDay;
 				//
 				var glyphType = document.createElement("I");
-				glyphType.className = "weather_type_glyph_hr wi " + getWeatherType_glyph(daytime["weather_type"]);
+				glyphType.className = "weather_type_glyph_hr wi " + getWeatherType_glyph(daytime.weather_type);
 				var divGlyph = document.createElement("DIV");
 				divGlyph.className = "col-xs-3 weather_detail";
 				divGlyph.appendChild(glyphType);

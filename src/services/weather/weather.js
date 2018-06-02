@@ -203,7 +203,7 @@ function startWeather(pageLocation, serviceIP) {
                     hour_key = forecastHoursKeys[h];
                     hour_item = forecastHours[hour_key]
                     //
-		            var hour_as_time = moment(hour_item.time, "YYYY-MM-DD");
+		            var hour_as_time = moment(hour_item.time, "HH:mm");
                     //
                     if (hour_as_time < moment()) {
                         first_hour_key = hour_key;
@@ -218,6 +218,7 @@ function startWeather(pageLocation, serviceIP) {
                     hour_key = forecastHoursKeys[h];
                     hour_item = forecastHours[hour_key]
                     //
+                    if (hr_count == 0 && hour_key != first_hour_key) {continue;}
                     if (hr_count == 4) {break;}
                     //
                     var divHour = document.createElement("DIV");

@@ -22,12 +22,12 @@
 }
 
 .birthday_name {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 16;
+    font-weight: 400;
 }
 
 .birthday_date {
-    font-size: 15px;
+    font-size: 16;
     padding: 0 2px 0 2px;
     font-weight: 700;
    }

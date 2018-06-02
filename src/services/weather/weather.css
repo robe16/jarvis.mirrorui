@@ -1,27 +1,18 @@
 .weather_divider {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.header_day {
-    font-size: 30px;
-    font-weight: bold;
-}
-.header_date {
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
+/* row styles */
 
 .weather_row_today {
-    font-size: 20;
+    font-size: 16;
     font-weight: 400;
     margin: 0px 10px;
 }
 .weather_row_hourly {
     margin-right: 15px;
-    font-size: 20;
+    font-size: 16;
     font-weight: 400;
     margin: 0px 10px;
 }
@@ -29,73 +20,26 @@
     margin: 0px 10px;
 }
 .weather_row_day {
-    font-size: 20;
+    font-size: 16;
     font-weight: 400;
     margin: 0px 10px;
 }
 
-.weather_item_today {
-    padding: 0px;
-}
-
-.item_day_cell {
-    padding: 10px;
-}
-.item_day{
-    padding: 25px;
-}
-
-.weather_detail_div {
-    display: inline-block;
-}
-
-.day_name {
-    font-weight: bold;
-}
-
-.weather_temp_div {
-    display: inline-flex;
-    font-weight: bold;
-}
-
-.weather_type {
-    width: 100px;
-}
+/* styles for the 'large' contents at top of weather block for today */
 
 .weather_type_glyph_today {
     padding: 20px 0px 0px 0px;
-    font-size: 80px;
+    font-size: 70;
     transform: translate(0px, -10px);
 }
 
-.weather_backcircle {
-    display: inline-block;
-    text-align: center;
-}
-
-.weather_glyph {
-    margin-right: 10px;
-}
-
-.align_left {text-align: left;}
-.align_center {text-align: center;}
-.align_right {text-align: right;}
-
-.weather_detail {
-}
-
 .weather_detail_large {
-    font-size: 80;
+    font-size: 70;
     font-weight: 400;
     margin: 0px 0px -10px 0px;
 }
 
-.weather_detail_small {
-    font-size: 12;
-    font-weight: 400;
-}
-
-p.temp_unit_day {
+p.weather_temp_unit_today {
     margin-top: 12px;
     font-family: sans-serif;
     font-weight: 100;
@@ -103,6 +47,13 @@ p.temp_unit_day {
     margin: 0;
 }
 
+/* styles for today's row items */
+
+.weather_item_today {
+    padding: 0px;
+}
+
+/* styles for hourly row items */
 
 p.weather_temp_hour_value {
     margin: 0px;
@@ -114,6 +65,25 @@ p.weather_temp_hour_unit {
     margin-top: 0px;
 }
 
+.weather_hourly_item {
+    display: block;
+    text-align: center;
+    padding: 0;
+}
+
+.weather_type_glyph_hr {
+    padding: 10px 0px 0px 0px;
+    transform: translate(0px, -5px);
+}
+
+/* styles for temperatures */
+
+.weather_temp_div {
+    display: inline-flex;
+    font-weight: bold;
+}
+
+/*
 .daynight {
     border-right: none;
     border-top: none;
@@ -121,38 +91,10 @@ p.weather_temp_hour_unit {
     padding-left: 10px;
     margin-bottom: 10px;
 }
-
 .daytime {
     border-left: 5px solid #70b1e2;
 }
 .nighttime {
     border-left: 5px solid #062845;
 }
-
-.hourly {
-    margin-top: 10px;
-    display: flex;
-}
-
-
-.hourly_item {
-    display: block;
-    text-align: center;
-    padding: 0;
-}
-.weather_type_glyph_hr {
-    padding: 10px 0px 0px 0px;
-    font-size: 20px;
-    transform: translate(0px, -5px);
-}
-.time_header {
-    font-size: 16px;
-    font-weight: 400;
-}
-
-
-@media (max-width: 576px) {} /*xs*/
-@media (max-width: 768px) {} /*sm*/
-@media (max-width: 992px) {} /*md*/
-@media (max-width: 1200px) {} /*lg*/
-/*xl*/
+*/

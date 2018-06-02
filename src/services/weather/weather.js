@@ -75,7 +75,7 @@ function startWeather(pageLocation, serviceIP) {
 				tempToday.className = "weather_detail_large";
 				tempToday.innerHTML = temp;
 				var tempUnit = document.createElement("P");
-				tempUnit.className = "temp_unit_day";
+				tempUnit.className = "weather_temp_unit_today";
 				tempUnit.innerHTML = temp_unit;
 				var divTodayTemp = document.createElement("DIV");
 				divTodayTemp.className = "col-xs-6 weather_item_today weather_detail_large weather_temp_div align_left";
@@ -245,7 +245,7 @@ function startWeather(pageLocation, serviceIP) {
                     //
                     //
                     var hourDiv = document.createElement("DIV");
-                    hourDiv.className = "col-xs-3 hourly_item";
+                    hourDiv.className = "col-xs-3 weather_hourly_item";
 				    hourDiv.appendChild(divHour);
 				    hourDiv.appendChild(divType);
 				    hourDiv.appendChild(divTemp);

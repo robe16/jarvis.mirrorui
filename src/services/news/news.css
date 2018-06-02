@@ -20,12 +20,12 @@
 }
 
 .news_title {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 16;
+    font-weight: 400;
    }
 
 .news_date {
-    font-size: 12px;
+    font-size: 14;
     font-weight: 700;
     padding: 0 2px 0 2px;
    }

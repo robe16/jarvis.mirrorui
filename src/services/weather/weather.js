@@ -239,13 +239,13 @@ function startWeather(pageLocation, serviceIP) {
                     tempUnit.className = "temp_unit_hour";
                     tempUnit.innerHTML = temp_unit;
                     var divTemp = document.createElement("DIV");
-                    divTemp.className = "material-text-light-secondary weather_detail temp_div";
+                    divTemp.className = "material-text-light-primary weather_detail temp_div";
                     divTemp.appendChild(tempHour);
                     divTemp.appendChild(tempUnit);
                     //
                     // Precipitation
                     var divRain = document.createElement("DIV");
-                    divRain.className = "material-text-light-secondary weather_detail";
+                    divRain.className = "material-text-light-primary weather_detail";
                     divRain.innerHTML = hour_item.precipitation_prob + rain_unit;
                     //
                     //
@@ -277,11 +277,11 @@ function startWeather(pageLocation, serviceIP) {
 				// Create individual rows for each day of the coming week
 				//
 				var divDay = document.createElement("DIV");
-				divDay.className = "col-xs-3 weather_detail day_name material-text-light-secondary";
+				divDay.className = "col-xs-3 weather_detail day_name material-text-light-primary";
 				divDay.innerHTML = strDay;
 				//
 				var glyphType = document.createElement("I");
-				glyphType.className = "weather_type_glyph_hr wi " + getWeatherType_glyph(daytime.weather_type);
+				glyphType.className = "material-text-light-secondary weather_type_glyph_hr wi " + getWeatherType_glyph(daytime.weather_type);
 				var divGlyph = document.createElement("DIV");
 				divGlyph.className = "col-xs-3 weather_detail";
 				divGlyph.appendChild(glyphType);

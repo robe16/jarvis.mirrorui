@@ -23,11 +23,10 @@
 
 .birthday_name {
     font-size: 15px;
-    font-weight: bold;
    }
 
 .birthday_date {
-    font-size: 15px;
+    font-size: 12px;
     padding: 0 2px 0 2px;
     font-weight: 100;
    }

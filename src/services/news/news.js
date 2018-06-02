@@ -54,17 +54,17 @@ function startNews(pageLocation, serviceIP) {
 //			divImgSource.className = "col-xs-1";
 //			divImgSource.appendChild(imgSource)
 			var divTitleArticle = document.createElement("DIV");
-			divTitleArticle.className = "col-xs-10 news_title"; //col-xs-9 when logo present
+			divTitleArticle.className = "col-xs-11 news_title"; //col-xs-10 when logo present
 			divTitleArticle.innerHTML = headline;
 			var divTitleDatetime = document.createElement("DIV");
-			divTitleDatetime.className = "col-xs-2 material-text-light-primary news_date";
+			divTitleDatetime.className = "col-xs-1 material-text-light-primary news_date";
 			divTitleDatetime.innerHTML = articleDatetime;
 			//
 			var rowDiv = document.createElement("DIV");
 			rowDiv.className = "row article_row";
 //			rowDiv.appendChild(divImgSource);
-			rowDiv.appendChild(divTitleArticle);
 			rowDiv.appendChild(divTitleDatetime);
+			rowDiv.appendChild(divTitleArticle);
 			//
 			tempArticles[articleDateObj.format("YYYY-MM-DD HH:mm")] = rowDiv;
 			//

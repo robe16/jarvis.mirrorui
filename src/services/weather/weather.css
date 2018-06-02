@@ -57,7 +57,7 @@
 
 .weather_detail {
     font-size: 20;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .weather_detail_large {
@@ -73,13 +73,14 @@
 p.temp_unit_day {
     margin-top: 12px;
     font-family: sans-serif;
-    font-weight: 200;
+    font-weight: 100;
+    font-size: 25;
 }
 
 p.temp_unit_hour {
-    margin-top: 18px;
+    font-size: 14;
     font-family: sans-serif;
-    font-weight: 200;
+    font-weight: 100;
     margin-top: 0px;
 }
 

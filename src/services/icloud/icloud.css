@@ -16,17 +16,18 @@
 
 .birthday_title {
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 700;
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
 .birthday_name {
     font-size: 15px;
-   }
+    font-weight: 400;
+}
 
 .birthday_date {
-    font-size: 12px;
+    font-size: 15px;
     padding: 0 2px 0 2px;
-    font-weight: 400;
+    font-weight: 700;
    }

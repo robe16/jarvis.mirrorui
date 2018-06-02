@@ -41,7 +41,8 @@ function startNews(pageLocation, serviceIP) {
 			var article = news_articles[a];
 			//
 		    var articleDateObj = moment(article.publishedAt, "YYYY-MM-DDTh:mm:ssZ"); //2017-02-23T11:48:47Z
-		    var articleDatetime = articleDateObj.format("DD-MM-YYYY HH:mm");
+		    //var articleDatetime = articleDateObj.format("DD-MM-YYYY HH:mm");
+		    var articleDatetime = articleDateObj.format("HH:mm");
 		    //
 		    var headline = article.title;
 		    //

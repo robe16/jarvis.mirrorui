@@ -77,6 +77,7 @@ body {
 .material-text-light-disabled {color: #FFFFFF; opacity: 0.5;}
 .material-text-light-divider {color: #FFFFFF; opacity: 0.12;}
 
+ /* Blue */
 .material-text-primary-500 {color: #2196F3; opacity: 1;}
 
 .btn-col-red {background-color: #D50000;}
@@ -100,19 +101,3 @@ body {
 .material-col-grey-700 {background-color: #616161;}
 .material-col-grey-800 {background-color: #424242;}
 .material-col-grey-900 {background-color: #212121;}
-/*primary - blue*/
-.material-col-primary-50 {background-color: #E3F2FD;}
-.material-col-primary-100 {background-color: #BBDEFB;}
-.material-col-primary-200 {background-color: #90CAF9;}
-.material-col-primary-300 {background-color: #64B5F6;}
-.material-col-primary-400 {background-color: #42A5F5;}
-.material-col-primary-500 {background-color: #2196F3;}
-.material-col-primary-600 {background-color: #1E88E5;}
-.material-col-primary-700 {background-color: #1976D2;}
-.material-col-primary-800 {background-color: #1565C0;}
-.material-col-primary-900 {background-color: #0D47A1;}
-/*accent - amber*/
-.material-col-accent-100 {background-color: #FFE57F;}
-.material-col-accent-200 {background-color: #FFD740;}
-.material-col-accent-400 {background-color: #FFC400;}
-.material-col-accent-700 {background-color: #FFAB00;}

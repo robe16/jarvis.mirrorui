@@ -57,14 +57,17 @@
 
 .weather_detail {
     font-size: 20;
+    font-weight: 100;
 }
 
 .weather_detail_large {
     font-size: 80;
+    font-weight: 100;
 }
 
 .weather_detail_small {
     font-size: 12;
+    font-weight: 100;
 }
 
 p.temp_unit_day {

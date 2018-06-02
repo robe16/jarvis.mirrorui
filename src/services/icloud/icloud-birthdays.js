@@ -31,7 +31,7 @@ function startBirthdays(pageLocation, serviceIP) {
         //
         // 'material-text-primary-500' or 'material-text-light'
         var divBirthdayTitle = document.createElement("DIV");
-        divBirthdayTitle.className = "row birthday_row material-text-primary-500 birthday_title";
+        divBirthdayTitle.className = "row birthday_row material-text-light-secondary birthday_title";
         divBirthdayTitle.innerHTML = "Upcoming birthdays";
 		//
 		for (var b_num in birthdays) {
@@ -86,7 +86,7 @@ function startBirthdays(pageLocation, serviceIP) {
 		if (todaysBirthdays.length > 0) {
 		    //
             var divBirthdayTodayTitle = document.createElement("DIV");
-            divBirthdayTodayTitle.className = "row birthday_row material-text-primary-500 birthday_title";
+            divBirthdayTodayTitle.className = "row birthday_row material-text-light-secondary birthday_title";
             divBirthdayTodayTitle.innerHTML = "Today's birthdays:";
 		    document.getElementById(pageLocation).appendChild(divBirthdayTodayTitle);
             //

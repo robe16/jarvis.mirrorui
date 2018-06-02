@@ -13,6 +13,31 @@
     margin-bottom: 10px;
 }
 
+
+.weather_row_today {
+    font-size: 20;
+    font-weight: 400;
+    margin: 0px 10px;
+}
+.weather_row_hourly {
+    margin-right: 15px;
+    font-size: 20;
+    font-weight: 400;
+    margin: 0px 10px;
+}
+.weather_row_divider {
+    margin: 0px 10px;
+}
+.weather_row_day {
+    font-size: 20;
+    font-weight: 400;
+    margin: 0px 10px;
+}
+
+.weather_item_today {
+    padding: 0px;
+}
+
 .item_day_cell {
     padding: 10px;
 }
@@ -28,7 +53,7 @@
     font-weight: bold;
 }
 
-.temp_div {
+.weather_temp_div {
     display: inline-flex;
     font-weight: bold;
 }
@@ -37,8 +62,8 @@
     width: 100px;
 }
 
-.weather_type_glyph_dy {
-    padding: 20px 0px 20px 20px;
+.weather_type_glyph_today {
+    padding: 20px 0px 0px 0px;
     font-size: 80px;
     transform: translate(0px, -10px);
 }
@@ -53,16 +78,16 @@
 }
 
 .align_left {text-align: left;}
+.align_center {text-align: center;}
 .align_right {text-align: right;}
 
 .weather_detail {
-    font-size: 20;
-    font-weight: 400;
 }
 
 .weather_detail_large {
     font-size: 80;
-    font-weight: 100;
+    font-weight: 400;
+    margin: 0px 0px -10px 0px;
 }
 
 .weather_detail_small {
@@ -75,9 +100,14 @@ p.temp_unit_day {
     font-family: sans-serif;
     font-weight: 100;
     font-size: 25;
+    margin: 0;
 }
 
-p.temp_unit_hour {
+
+p.weather_temp_hour_value {
+    margin: 0px;
+}
+p.weather_temp_hour_unit {
     font-size: 14;
     font-family: sans-serif;
     font-weight: 100;
@@ -99,21 +129,19 @@ p.temp_unit_hour {
     border-left: 5px solid #062845;
 }
 
-
 .hourly {
     margin-top: 10px;
     display: flex;
 }
-.hourly_items {
-    margin-right: 15px;
-}
+
+
 .hourly_item {
     display: block;
     text-align: center;
-    /*width: 12.5%;*/
+    padding: 0;
 }
 .weather_type_glyph_hr {
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px 0px 0px;
     font-size: 20px;
     transform: translate(0px, -5px);
 }

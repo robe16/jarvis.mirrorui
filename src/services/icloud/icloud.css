@@ -16,7 +16,7 @@
 
 .birthday_title {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 400;
     padding-top: 10px;
     padding-bottom: 5px;
 }
@@ -28,5 +28,5 @@
 .birthday_date {
     font-size: 12px;
     padding: 0 2px 0 2px;
-    font-weight: 100;
+    font-weight: 400;
    }

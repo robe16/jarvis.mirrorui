@@ -67,19 +67,19 @@
 
 .weather_detail_small {
     font-size: 12;
-    /*font-weight: bold;*/
+    font-weight: 400;
 }
 
 p.temp_unit_day {
     margin-top: 12px;
     font-family: sans-serif;
-    /*font-weight: bold;*/
+    font-weight: 200;
 }
 
 p.temp_unit_hour {
     margin-top: 18px;
     font-family: sans-serif;
-    /*font-weight: bold;*/
+    font-weight: 200;
     margin-top: 0px;
 }
 

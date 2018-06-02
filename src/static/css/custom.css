@@ -20,7 +20,6 @@ body {
 .btn_pointer {cursor: pointer;}
 
 
-
 .material-text-dark-primary {color: #000000; opacity: 0.87;}
 .material-text-dark-seconday {color: #000000; opacity: 0.54;}
 .material-text-dark-disabled {color: #000000; opacity: 0.38;}
@@ -29,28 +28,3 @@ body {
 .material-text-light-secondary {color: #FFFFFF; opacity: 0.7;}
 .material-text-light-disabled {color: #FFFFFF; opacity: 0.5;}
 .material-text-light-divider {color: #FFFFFF; opacity: 0.12;}
-
- /* Blue */
-.material-text-primary-500 {color: #2196F3; opacity: 1;}
-
-.btn-col-red {background-color: #D50000;}
-.btn-col-red:hover {background-color: #B71C1C;}
-.btn-col-green {background-color: #4CAF50;}
-.btn-col-green:hover {background-color: #43A047;}
-.btn-col-yellow {background-color: #FFEB3B;}
-.btn-col-yellow:hover {background-color: #FDD835;}
-.btn-col-blue {background-color: #2196F3;}
-.btn-col-blue:hover {background-color: #1E88E5;}
-.btn-col-grey {background-color: #EEEEEE;}
-.btn-col-grey:hover {background-color: #E0E0E0;}
-/*grey*/
-.material-col-grey-50 {background-color: #FAFAFA;}
-.material-col-grey-100 {background-color: #F5F5F5;}
-.material-col-grey-200 {background-color: #EEEEEE;}
-.material-col-grey-300 {background-color: #E0E0E0;}
-.material-col-grey-400 {background-color: #BDBDBD;}
-.material-col-grey-500 {background-color: #9E9E9E;}
-.material-col-grey-600 {background-color: #757575;}
-.material-col-grey-700 {background-color: #616161;}
-.material-col-grey-800 {background-color: #424242;}
-.material-col-grey-900 {background-color: #212121;}

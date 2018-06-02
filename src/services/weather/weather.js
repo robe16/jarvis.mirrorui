@@ -227,9 +227,9 @@ function startWeather(pageLocation, serviceIP) {
                     // weather glyph
                     var glyphType = document.createElement("I");
                     glyphType.className = "material-text-light-secondary weather_type_glyph_hr wi " + getWeatherType_glyph(hour_item.weather_type);
-//                    var divType = document.createElement("DIV");
-//                    divType.className = "weather_detail_type align_left";
-//                    divType.appendChild(glyphType);
+                    var divType = document.createElement("DIV");
+                    divType.className = "weather_detail_type";
+                    divType.appendChild(glyphType);
                     //
                     // temperature
                     var tempHour = document.createElement("P");
@@ -249,9 +249,9 @@ function startWeather(pageLocation, serviceIP) {
                     //
                     //
                     var hourDiv = document.createElement("DIV");
-                    hourDiv.className = "col-xs-3 center";
+                    hourDiv.className = "col-xs-3 hourly_item";
 				    hourDiv.appendChild(divHour);
-				    hourDiv.appendChild(glyphType);
+				    hourDiv.appendChild(divType);
 				    hourDiv.appendChild(divTemp);
 				    hourDiv.appendChild(divRain);
                     //

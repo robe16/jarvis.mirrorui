@@ -56,10 +56,10 @@ function startBirthdays(pageLocation, serviceIP) {
 		    } else {
                 //
                 var divBirthdayDate = document.createElement("DIV");
-                divBirthdayDate.className = "col-xs-2 material-text-light-primary birthday_date";
+                divBirthdayDate.className = "col-xs-3 material-text-light-primary birthday_date";
                 divBirthdayDate.innerHTML = birthdayDate;
                 var divBirthdayName = document.createElement("DIV");
-                divBirthdayName.className = "col-xs-10 birthday_name";
+                divBirthdayName.className = "col-xs-9 birthday_name";
                 divBirthdayName.innerHTML = birthdayName;
                 //
                 var rowDiv = document.createElement("DIV");

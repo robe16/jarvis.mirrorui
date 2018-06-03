@@ -187,15 +187,13 @@ function startWeather(pageLocation, serviceIP) {
 				//
                 var forecastHours = day_item["3hourly"];
                 forecastHoursKeys = Object.keys(forecastHours).sort();
-				//
-				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row  weather_row_hourly";
                 //
                 var first_hour_key = 0;
                 //
+                // Find the first 3hourly item to use
                 for (h in forecastHoursKeys) {
                     hour_key = forecastHoursKeys[h];
-                    hour_item = forecastHours[hour_key]
+                    hour_item = forecastHours[hour_key];
                     //
 		            var hour_as_time = moment(hour_item.time, "HH:mm");
                     //
@@ -204,13 +202,61 @@ function startWeather(pageLocation, serviceIP) {
 				    //
                 }
                 //
+                var hourly_objects = {};
+                //
+                // Build array of 3hourly objects - this is needed to get the 'extra' items
+                // when required number spills into next day's items
                 var hr_count = 0;
+                var hr_max = 6;
                 for (h in forecastHoursKeys) {
                     hour_key = forecastHoursKeys[h];
-                    hour_item = forecastHours[hour_key]
-                    //
                     if (hr_count == 0 && hour_key != first_hour_key) {continue;}
-                    if (hr_count == 6) {break;}
+                    //
+                    hour_item = forecastHours[hour_key];
+                    var new_key = day_item.date + " " + hour_item.time;
+                    //
+                    if (hr_count == hr_max) {
+                        break;
+                    } else {
+                        hourly_objects[new_key] = hour_item;
+                    }
+                    //
+				    hr_count += 1;
+				    //
+                }
+                //
+                // If there was not enought items in today's list, roll onto tomorrow's list
+                if (hourly_objects.length < hr_max) {
+                    //
+                    var tomorrow_day_key = dateObj.add(5, 'days').format("YYYY-MM-DD");
+                    var tomorrow_day_item = forecastDays[day_key];
+                    var forecastHours_tomorrow = tomorrow_day_item["3hourly"];
+                    forecastHoursKeys_tomorrow = Object.keys(forecastHoursKeys_tomorrow).sort();
+                    //
+                    for (h in forecastHoursKeys_tomorrow) {
+                        hour_key = forecastHoursKeys_tomorrow[h];
+                        //
+                        hour_item = forecastHours_tomorrow[hour_key];
+                        var new_key = day_item.date + " " + hour_item.time;
+                        //
+                        if (hr_count == hr_max) {
+                            break;
+                        } else {
+                            hourly_objects[new_key] = hour_item;
+                        }
+                        //
+                        hr_count += 1;
+                        //
+                    }
+                }
+                //
+				//
+				var rowDiv = document.createElement("DIV");
+				rowDiv.className = "row  weather_row_hourly";
+                //
+                for (hour_key in hourly_objects) {
+                    //
+                    hour_item = hourly_objects[hour_key];
                     //
                     var divHour = document.createElement("DIV");
                     divHour.className = "day_name";
@@ -250,7 +296,7 @@ function startWeather(pageLocation, serviceIP) {
                     //
 				    rowDiv.appendChild(hourDiv);
 				    //
-				    hr_count += 1;
+//				    hr_count += 1;
 				    //
                 }
 				//

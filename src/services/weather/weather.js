@@ -226,12 +226,12 @@ function startWeather(pageLocation, serviceIP) {
                 }
                 //
                 // If there was not enought items in today's list, roll onto tomorrow's list
-                if (hourly_objects.length < hr_max) {
+                if (Object.keys(hourly_objects).length < hr_max) {
                     //
                     var tomorrow_day_key = dateObj.add(5, 'days').format("YYYY-MM-DD");
                     var tomorrow_day_item = forecastDays[day_key];
                     var forecastHours_tomorrow = tomorrow_day_item["3hourly"];
-                    forecastHoursKeys_tomorrow = Object.keys(forecastHoursKeys_tomorrow).sort();
+                    forecastHoursKeys_tomorrow = Object.keys(forecastHours_tomorrow).sort();
                     //
                     for (h in forecastHoursKeys_tomorrow) {
                         hour_key = forecastHoursKeys_tomorrow[h];

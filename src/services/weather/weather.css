@@ -7,13 +7,13 @@
 
 .weather_row_today {
     font-size: 16;
-    font-weight: 400;
+    font-weight: 700;
     margin: 0px 10px;
 }
 .weather_row_hourly {
     margin-right: 15px;
     font-size: 16;
-    font-weight: 400;
+    font-weight: 700;
     margin: 0px 10px;
 }
 .weather_row_divider {
@@ -21,7 +21,7 @@
 }
 .weather_row_day {
     font-size: 16;
-    font-weight: 400;
+    font-weight: 700;
     margin: 0px 10px;
 }
 

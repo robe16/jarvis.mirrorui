@@ -87,7 +87,7 @@ function startBirthdays(pageLocation, serviceIP) {
 		    //
             var divBirthdayTodayTitle = document.createElement("DIV");
             divBirthdayTodayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
-            divBirthdayTodayTitle.innerHTML = "Today's birthdays:";
+            divBirthdayTodayTitle.innerHTML = "Today's birthdays";
 		    document.getElementById(pageLocation).appendChild(divBirthdayTodayTitle);
             //
             for (b in todaysBirthdays) {

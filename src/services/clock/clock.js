@@ -20,9 +20,7 @@ function startClock(pageLocation) {
 		document.getElementById(pageLocation).innerHTML = ""
 		document.getElementById(pageLocation).appendChild(datetimeDiv);
 	}
-	
-//	window.onload=function() {
+
 	GetClock();
 	setInterval(GetClock, 10000);
-//	}
 }

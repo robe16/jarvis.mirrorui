@@ -1,4 +1,4 @@
-.birthday-container {
+.icloud_birthday-container {
 	/*max-height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;*/
@@ -9,24 +9,24 @@
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
-.icloud_birthday_row {
+.icloud_birthday-row {
 	padding: 0 0 0 0;
 	margin-left: 5px;
 }
 
-.icloud_birthday_title {
+.icloud_birthday-title {
     font-size: 17px;
     font-weight: 700;
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
-.icloud_birthday_name {
+.icloud_birthday-name {
     font-size: 16;
     font-weight: 700;
 }
 
-.icloud_birthday_date {
+.icloud_birthday-date {
     font-size: 16;
     padding: 0 2px 0 2px;
     font-weight: 700;

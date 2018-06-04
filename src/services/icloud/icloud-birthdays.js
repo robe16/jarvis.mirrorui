@@ -31,7 +31,7 @@ function startBirthdays(pageLocation, serviceIP) {
         //
         // 'material-text-primary-500' or 'material-text-light'
         var divBirthdayTitle = document.createElement("DIV");
-        divBirthdayTitle.className = "row icloud_birthday_row material-text-light-secondary icloud_birthday_title";
+        divBirthdayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
         divBirthdayTitle.innerHTML = "Upcoming birthdays";
 		//
 		for (var b_num in birthdays) {
@@ -56,14 +56,14 @@ function startBirthdays(pageLocation, serviceIP) {
 		    } else {
                 //
                 var divBirthdayDate = document.createElement("DIV");
-                divBirthdayDate.className = "col-xs-3 material-text-light-primary icloud_birthday_date";
+                divBirthdayDate.className = "col-xs-3 material-text-light-primary icloud_birthday-date";
                 divBirthdayDate.innerHTML = birthdayDate;
                 var divBirthdayName = document.createElement("DIV");
-                divBirthdayName.className = "col-xs-9 icloud_birthday_name";
+                divBirthdayName.className = "col-xs-9 icloud_birthday-name";
                 divBirthdayName.innerHTML = birthdayName;
                 //
                 var rowDiv = document.createElement("DIV");
-                rowDiv.className = "row icloud_birthday_row";
+                rowDiv.className = "row icloud_birthday-row";
                 rowDiv.appendChild(divBirthdayDate);
                 rowDiv.appendChild(divBirthdayName);
                 //
@@ -86,18 +86,18 @@ function startBirthdays(pageLocation, serviceIP) {
 		if (todaysBirthdays.length > 0) {
 		    //
             var divBirthdayTodayTitle = document.createElement("DIV");
-            divBirthdayTodayTitle.className = "row icloud_birthday_row material-text-light-secondary icloud_birthday_title";
+            divBirthdayTodayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
             divBirthdayTodayTitle.innerHTML = "Today's birthdays:";
 		    document.getElementById(pageLocation).appendChild(divBirthdayTodayTitle);
             //
             for (b in todaysBirthdays) {
                 //
                 var divBirthdayName = document.createElement("DIV");
-                divBirthdayName.className = "col-xs-11 col-xs-1-offset icloud_birthday_name";
+                divBirthdayName.className = "col-xs-11 col-xs-1-offset icloud_birthday-name";
                 divBirthdayName.innerHTML = todaysBirthdays[b];
                 //
                 var rowDiv = document.createElement("DIV");
-                rowDiv.className = "row icloud_birthday_row";
+                rowDiv.className = "row icloud_birthday-row";
                 rowDiv.appendChild(divBirthdayName);
                 //
                 document.getElementById(pageLocation).appendChild(rowDiv);

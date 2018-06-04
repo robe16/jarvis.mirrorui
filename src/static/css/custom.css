@@ -12,6 +12,15 @@ body {
     box-shadow: 2px 2px 7px 0px rgba(50, 50, 50, 0.7);
 }
 
+.grayscale {
+  /* IE */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  /* Chrome, Safari */
+  -webkit-filter: grayscale(1);
+  /* Firefox */
+  filter: grayscale(1);
+}
+
 
 .align_left {text-align: left;}
 .align_center {text-align: center;}

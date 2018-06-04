@@ -13,7 +13,7 @@ function startNews(pageLocation, serviceIP) {
 	function createNews(data) {
 		//
 		var newsDiv = document.createElement("DIV");
-		newsDiv.className = "news-container";
+		newsDiv.className = "news_container";
 		//
 		// Parse json
 		dataJson = JSON.parse(data);
@@ -41,19 +41,19 @@ function startNews(pageLocation, serviceIP) {
 			// 'urlsToLogos' no longer available from newsapi.org
 //			var imgSource = document.createElement("IMG");
 //			imgSource.src = article.urlToImage;
-//			imgSource.className = "grayscale news_img";
+//			imgSource.className = "grayscale news_article-img";
 //			var divImgSource = document.createElement("DIV");
 //			divImgSource.className = "col-xs-1";
 //			divImgSource.appendChild(imgSource)
 			var divTitleArticle = document.createElement("DIV");
-			divTitleArticle.className = "col-xs-11 news_title"; //col-xs-10 when logo present
+			divTitleArticle.className = "col-xs-11 news_article-title"; //col-xs-10 when logo present
 			divTitleArticle.innerHTML = headline;
 			var divTitleDatetime = document.createElement("DIV");
-			divTitleDatetime.className = "col-xs-1 material-text-light-secondary news_date";
+			divTitleDatetime.className = "col-xs-1 material-text-light-secondary news_article-date";
 			divTitleDatetime.innerHTML = articleDatetime;
 			//
 			var rowDiv = document.createElement("DIV");
-			rowDiv.className = "row article_row";
+			rowDiv.className = "row news_article-row";
 //			rowDiv.appendChild(divImgSource);
 			rowDiv.appendChild(divTitleDatetime);
 			rowDiv.appendChild(divTitleArticle);

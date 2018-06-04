@@ -1,4 +1,4 @@
-function startEvents(pageLocation, serviceIP) {
+function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 
 	function getEvents() {
 		// Retrieve events from server
@@ -17,6 +17,16 @@ function startEvents(pageLocation, serviceIP) {
 	function createEvents(data) {
 	    //
 		document.getElementById(pageLocation).innerHTML = "";
+        //
+        if (dividerTop || dividerBottom) {
+            var divider = document.createElement("HR");
+            divider.className = "divider material-text-light-secondary";
+            var dividerDiv = document.createElement("DIV");
+            dividerDiv.className = "row icloud_events-row";
+            dividerDiv.appendChild(divider);
+        }
+        //
+        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var eventsDiv = document.createElement("DIV");
 		eventsDiv.className = "icloud_events-container";
@@ -45,8 +55,6 @@ function startEvents(pageLocation, serviceIP) {
 		    //
 //		    if (eventDateObj_end > now) {
 		    if (true) {
-                //
-                var eventDiv = document.createElement("DIV");
                 //
                 if (e.allDay) {
                     var _time = "all day";
@@ -83,12 +91,10 @@ function startEvents(pageLocation, serviceIP) {
                 rowDiv.appendChild(divEventDate);
                 rowDiv.appendChild(divEventName);
                 //
-                eventDiv.appendChild(rowDiv)
-                //
                 if (!tempEvents.hasOwnProperty(eventDate_key)) {
                     tempEvents[eventDate_key] = {};
                 }
-                tempEvents[eventDate_key][eventTime] = eventDiv;
+                tempEvents[eventDate_key][eventTime] = rowDiv;
                 //
             }
 		}
@@ -140,6 +146,8 @@ function startEvents(pageLocation, serviceIP) {
 		//
 		// Add to body of document
 		document.getElementById(pageLocation).appendChild(eventsDiv);
+        //
+        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 
 	getEvents();

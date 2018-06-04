@@ -1,4 +1,4 @@
-function startWeather(pageLocation, serviceIP) {
+function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 	
 	function GetWeather() {
 		// Retrieve weather from server
@@ -31,6 +31,19 @@ function startWeather(pageLocation, serviceIP) {
 		//
 		//
 		for (d in forecastDaysKeys) {
+		    //
+		    document.getElementById(pageLocation).innerHTML = "";
+            //
+            if (dividerTop || dividerBottom) {
+                var divider = document.createElement("HR");
+                divider.className = "divider material-text-light-secondary";
+                var dividerDiv = document.createElement("DIV");
+                dividerDiv.className = "row icloud_events-row";
+                dividerDiv.appendChild(divider);
+            }
+            //
+            if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
+		    //
 		    day_key = forecastDaysKeys[d];
 		    //
 			var day_item = forecastDays[day_key];
@@ -349,8 +362,9 @@ function startWeather(pageLocation, serviceIP) {
 		}
 		//
 		// Add to body of document
-		document.getElementById(pageLocation).innerHTML = "";
 		document.getElementById(pageLocation).appendChild(weatherDiv);
+        //
+        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 	
 	GetWeather();

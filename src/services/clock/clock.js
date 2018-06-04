@@ -1,4 +1,4 @@
-function startClock(pageLocation) {
+function startClock(pageLocation, dividerTop=false, dividerBottom=false) {
 	
 	function GetClock() {
 	    //
@@ -18,7 +18,20 @@ function startClock(pageLocation) {
 		datetimeDiv.appendChild(timeDiv)
 		//
 		document.getElementById(pageLocation).innerHTML = ""
+        //
+        if (dividerTop || dividerBottom) {
+            var divider = document.createElement("HR");
+            divider.className = "divider material-text-light-secondary";
+            var dividerDiv = document.createElement("DIV");
+            dividerDiv.className = "row icloud_events-row";
+            dividerDiv.appendChild(divider);
+        }
+        //
+        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
+        //
 		document.getElementById(pageLocation).appendChild(datetimeDiv);
+        //
+        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 
 	GetClock();

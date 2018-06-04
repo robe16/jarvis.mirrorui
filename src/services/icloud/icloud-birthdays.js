@@ -1,4 +1,4 @@
-function startBirthdays(pageLocation, serviceIP) {
+function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 
 	function getBirthdays() {
 		// Retrieve birthdays from server
@@ -17,6 +17,16 @@ function startBirthdays(pageLocation, serviceIP) {
 	function createBirthdays(data) {
 	    //
 		document.getElementById(pageLocation).innerHTML = "";
+		//
+        if (dividerTop || dividerBottom) {
+            var divider = document.createElement("HR");
+            divider.className = "divider material-text-light-secondary";
+            var dividerDiv = document.createElement("DIV");
+            dividerDiv.className = "row icloud_events-row";
+            dividerDiv.appendChild(divider);
+        }
+        //
+        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var birthdayDiv = document.createElement("DIV");
 		birthdayDiv.className = "icloud_birthday-container";
@@ -123,6 +133,8 @@ function startBirthdays(pageLocation, serviceIP) {
 		// Add to body of document
 		document.getElementById(pageLocation).appendChild(divBirthdayTitle);
 		document.getElementById(pageLocation).appendChild(birthdayDiv);
+        //
+        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 
 	getBirthdays();

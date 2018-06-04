@@ -1,4 +1,4 @@
-function startNews(pageLocation, serviceIP) {
+function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 	
 	function GetNews() {
 		// Retrieve news from server
@@ -11,6 +11,18 @@ function startNews(pageLocation, serviceIP) {
 	}
 	
 	function createNews(data) {
+	    //
+		document.getElementById(pageLocation).innerHTML = "";
+        //
+        if (dividerTop || dividerBottom) {
+            var divider = document.createElement("HR");
+            divider.className = "divider material-text-light-secondary";
+            var dividerDiv = document.createElement("DIV");
+            dividerDiv.className = "row icloud_events-row";
+            dividerDiv.appendChild(divider);
+        }
+        //
+        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var newsDiv = document.createElement("DIV");
 		newsDiv.className = "news_container";
@@ -78,8 +90,9 @@ function startNews(pageLocation, serviceIP) {
 		}
 		//
 		// Add to body of document
-		document.getElementById(pageLocation).innerHTML = "";
 		document.getElementById(pageLocation).appendChild(newsDiv);
+        //
+        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 	
 	GetNews();

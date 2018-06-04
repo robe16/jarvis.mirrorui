@@ -106,7 +106,7 @@ function startBirthdays(pageLocation, serviceIP) {
             //
 		}
 		//
-		// Sort tempBirthdays and then add to newsDiv
+		// Sort tempBirthdays and then add to birthdayDiv
 		keys = [];
 		for (k in tempBirthdays) {
 		  if (tempBirthdays.hasOwnProperty(k)) {

@@ -2,6 +2,7 @@
 	/*max-height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;*/
+    margin-bottom: 1.5em;
 }
 
 .icloud_birthday-row {
@@ -10,19 +11,51 @@
 }
 
 .icloud_birthday-title {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 15;
+    /*font-weight: 700;
     padding-top: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 5px;*/
 }
 
 .icloud_birthday-name {
-    font-size: 16;
-    font-weight: 700;
+    /*font-size: 16;
+    font-weight: 700;*/
 }
 
 .icloud_birthday-date {
-    font-size: 16;
+    font-size: 14;
+    padding: 0 2px 0 2px;
+    font-weight: 700;
+}
+
+
+
+.icloud_events-container {
+	/*max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;*/
+    margin-bottom: 1.5em;
+}
+
+.icloud_events-row {
+	padding: 0 0 0 0;
+	margin-left: 5px;
+}
+
+.icloud_events-title {
+    font-size: 15;
+    /*font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 5px;*/
+}
+
+.icloud_events-name {
+    /*font-size: 16;
+    font-weight: 700;*/
+}
+
+.icloud_events-date {
+    font-size: 14;
     padding: 0 2px 0 2px;
     font-weight: 700;
 }

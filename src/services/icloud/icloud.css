@@ -9,25 +9,25 @@
     background: transparent;  /* optional: just make scrollbar invisible */
 }
 
-.birthday_row {
+.icloud_birthday_row {
 	padding: 0 0 0 0;
 	margin-left: 5px;
 }
 
-.birthday_title {
+.icloud_birthday_title {
     font-size: 17px;
     font-weight: 700;
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
-.birthday_name {
+.icloud_birthday_name {
     font-size: 16;
     font-weight: 700;
 }
 
-.birthday_date {
+.icloud_birthday_date {
     font-size: 16;
     padding: 0 2px 0 2px;
     font-weight: 700;
-   }
+}

@@ -1,7 +1,3 @@
-var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");	
-
-
 function startWeather(pageLocation, serviceIP) {
 	
 	function GetWeather() {

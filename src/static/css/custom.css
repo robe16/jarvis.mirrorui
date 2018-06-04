@@ -12,13 +12,15 @@ body {
     box-shadow: 2px 2px 7px 0px rgba(50, 50, 50, 0.7);
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 .grayscale {
-  /* IE */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-  /* Chrome, Safari */
-  -webkit-filter: grayscale(1);
-  /* Firefox */
-  filter: grayscale(1);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); /* IE */
+  -webkit-filter: grayscale(1); /* Chrome, Safari */
+  filter: grayscale(1); /* Firefox */
 }
 
 

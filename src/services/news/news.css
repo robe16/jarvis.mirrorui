@@ -4,11 +4,6 @@
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
-
 .news_article-row {
     margin-left: 10px;
 	padding: 0;

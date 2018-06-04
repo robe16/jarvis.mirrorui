@@ -175,7 +175,7 @@ function startWeather(pageLocation, serviceIP) {
 				var divider = document.createElement("HR");
 				divider.className = "weather_divider material-text-light-secondary";
 				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row weather_row_divider";
+				rowDiv.className = "row divider";
 				rowDiv.appendChild(divider);
 				//
 				weatherDiv.appendChild(rowDiv);
@@ -302,7 +302,7 @@ function startWeather(pageLocation, serviceIP) {
 				var divider = document.createElement("HR");
 				divider.className = "weather_divider material-text-light-secondary";
 				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row weather_row_divider";
+				rowDiv.className = "row divider";
 				rowDiv.appendChild(divider);
 				//
 				weatherDiv.appendChild(rowDiv);

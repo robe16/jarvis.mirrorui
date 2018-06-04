@@ -11,15 +11,14 @@
 }
 
 .icloud_birthday-title {
-    font-size: 15;
-    /*font-weight: 700;
-    padding-top: 10px;
-    padding-bottom: 5px;*/
+    font-size: 16;
+    font-weight: 700;
+    padding-top: 5px;
 }
 
 .icloud_birthday-name {
-    /*font-size: 16;
-    font-weight: 700;*/
+    font-size: 14;
+    font-weight: 700;
 }
 
 .icloud_birthday-date {
@@ -43,15 +42,14 @@
 }
 
 .icloud_events-title {
-    font-size: 15;
-    /*font-weight: 700;
-    padding-top: 10px;
-    padding-bottom: 5px;*/
+    font-size: 16;
+    font-weight: 700;
+    padding-top: 5px;
 }
 
 .icloud_events-name {
-    /*font-size: 16;
-    font-weight: 700;*/
+    font-size: 14;
+    font-weight: 700;
 }
 
 .icloud_events-date {

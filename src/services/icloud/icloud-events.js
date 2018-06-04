@@ -30,7 +30,6 @@ function startEvents(pageLocation, serviceIP) {
 		var todaysEvents = new Array();
         //
         var now = new Date();
-        var today = moment(today).format("dddd Do MMM");
 		//
 		for (var e_num in events) {
 			//
@@ -106,13 +105,19 @@ function startEvents(pageLocation, serviceIP) {
 		for (i = 0; i < keys_dates.length; i++) {
             k_d = keys_dates[i];
             //
-            _date = moment(k_d, "YYYY-MM-DD").format("dddd Do MMM");
             var divEventTitle = document.createElement("DIV");
             divEventTitle.className = "row icloud_events-row material-text-light-secondary icloud_events-title";
+            //
+            _date = moment(k_d, "YYYY-MM-DD").format("dddd Do MMM");
+            var today = moment(today).format("dddd Do MMM");
+            var tomorrow = moment(today).add(1, 'days').format("dddd Do MMM");
+            //
             if (_date == today) {
                 var _date = "Today";
+            } else if (_date == tomorrow) {
+                var _date = "Tomorrow";
             } else {
-                var _date = eventDate;
+                var _date = moment(k_d, "YYYY-MM-DD").format("dddd Do");
             }
             divEventTitle.innerHTML = _date;
             //

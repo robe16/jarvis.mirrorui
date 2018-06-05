@@ -80,10 +80,10 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 //                }
                 //
                 var divEventDate = document.createElement("DIV");
-                divEventDate.className = "col-xs-2 material-text-light-primary icloud_events-date";
+                divEventDate.className = "col-xs-3 material-text-light-primary icloud_events-date";
                 divEventDate.innerHTML = _time;
                 var divEventName = document.createElement("DIV");
-                divEventName.className = "col-xs-10 icloud_events-name";
+                divEventName.className = "col-xs-9 icloud_events-name";
                 divEventName.innerHTML = eventDescription;
                 //
                 var rowDiv = document.createElement("DIV");

@@ -22,7 +22,7 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
             var divider = document.createElement("HR");
             divider.className = "divider material-text-light-secondary";
             var dividerDiv = document.createElement("DIV");
-            dividerDiv.className = "row icloud_events-row";
+            dividerDiv.className = "row icloud_birthday-row";
             dividerDiv.appendChild(divider);
         }
         //
@@ -38,11 +38,6 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
 		//
 		var tempBirthdays = {};
 		var todaysBirthdays = new Array();
-        //
-        // 'material-text-primary-500' or 'material-text-light'
-        var divBirthdayTitle = document.createElement("DIV");
-        divBirthdayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
-        divBirthdayTitle.innerHTML = "Upcoming birthdays";
 		//
 		for (var b_num in birthdays) {
 			//
@@ -110,11 +105,19 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
                 rowDiv.className = "row icloud_birthday-row";
                 rowDiv.appendChild(divBirthdayName);
                 //
-                document.getElementById(pageLocation).appendChild(rowDiv);
+                birthdayDiv.appendChild(rowDiv)
                 //
             }
             //
+            document.getElementById(pageLocation).appendChild(rowDiv);
+            //
 		}
+        //
+        // 'material-text-primary-500' or 'material-text-light'
+        var divBirthdayTitle = document.createElement("DIV");
+        divBirthdayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
+        divBirthdayTitle.innerHTML = "Upcoming birthdays";
+		birthdayDiv.appendChild(divBirthdayTitle);
 		//
 		// Sort tempBirthdays and then add to birthdayDiv
 		keys = [];
@@ -131,7 +134,6 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
 		}
 		//
 		// Add to body of document
-		document.getElementById(pageLocation).appendChild(divBirthdayTitle);
 		document.getElementById(pageLocation).appendChild(birthdayDiv);
         //
         if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}

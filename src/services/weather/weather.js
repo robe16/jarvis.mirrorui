@@ -186,9 +186,9 @@ function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=f
 				weatherDiv.appendChild(rowDiv);
 				//
 				var divider = document.createElement("HR");
-				divider.className = "weather_divider material-text-light-secondary";
+				divider.className = "divider material-text-light-secondary";
 				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row divider";
+				rowDiv.className = "row weather_row_today";
 				rowDiv.appendChild(divider);
 				//
 				weatherDiv.appendChild(rowDiv);
@@ -313,9 +313,9 @@ function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=f
 				//
 				//
 				var divider = document.createElement("HR");
-				divider.className = "weather_divider material-text-light-secondary";
+				divider.className = "divider material-text-light-secondary";
 				var rowDiv = document.createElement("DIV");
-				rowDiv.className = "row divider";
+				rowDiv.className = "row weather_row_today";
 				rowDiv.appendChild(divider);
 				//
 				weatherDiv.appendChild(rowDiv);

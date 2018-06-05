@@ -1,3 +1,7 @@
+.weather-container {
+    max-width: 24em;
+}
+
 /* row styles */
 
 .weather_row_today {

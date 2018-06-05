@@ -53,8 +53,7 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 		    //
 		    var eventName = e.title;
 		    //
-//		    if (eventDateObj_end > now) {
-		    if (true) {
+		    if (eventDateObj_end > now) {
                 //
                 if (e.allDay) {
                     var _time = "all day";
@@ -62,39 +61,52 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
                     var _time = eventTime;
                 }
                 //
-                var eventDescription = eventName;
-                //
-//                if (e.location != null) {
-//                    //
-//                    var location = e.location;
-//                    //
-//                    if (location.indexOf('\n') > -1) {
-//                        var location = location.split('\n');
-//                    } else if (location.indexOf(',') > -1) {
-//                        var location = location.split(',');
-//                    }
-//                    //
-//                    eventDescription += "  [";
-//                    eventDescription += location[0];
-//                    eventDescription += "]";
-//                }
+                var eventDiv = document.createElement("DIV");
                 //
                 var divEventDate = document.createElement("DIV");
-                divEventDate.className = "col-xs-3 material-text-light-primary icloud_events-date";
+                divEventDate.className = "col-xs-2 material-text-light-primary icloud_events-date";
                 divEventDate.innerHTML = _time;
                 var divEventName = document.createElement("DIV");
-                divEventName.className = "col-xs-9 icloud_events-name";
-                divEventName.innerHTML = eventDescription;
+                divEventName.className = "col-xs-10 icloud_events-name";
+                divEventName.innerHTML = eventName;
                 //
                 var rowDiv = document.createElement("DIV");
                 rowDiv.className = "row icloud_events-row";
                 rowDiv.appendChild(divEventDate);
                 rowDiv.appendChild(divEventName);
                 //
+                eventDiv.appendChild(rowDiv)
+                //
+                if (e.location != null) {
+                    //
+                    var eventLocation = e.location;
+                    //
+//                    eventLocation = eventLocation.replace('\n', ', ')
+                    //
+                    if (eventLocation.indexOf('\n') > -1) {
+                        eventLocation = eventLocation.split('\n');
+                        eventLocation = eventLocation[0];
+                    } else if (eventLocation.indexOf(',') > -1) {
+                        eventLocation = eventLocation.split(',');
+                        eventLocation = eventLocation[0];
+                    }
+                    //
+                    var divEventLocation = document.createElement("DIV");
+                    divEventLocation.className = "col-xs-10 col-xs-offset-2 material-text-light-secondary icloud_events-location";
+                    divEventLocation.innerHTML = eventLocation;
+                    //
+                    var rowDiv = document.createElement("DIV");
+                    rowDiv.className = "row icloud_events-row";
+                    rowDiv.appendChild(divEventLocation);
+                    //
+                    eventDiv.appendChild(rowDiv)
+                    //
+                }
+                //
                 if (!tempEvents.hasOwnProperty(eventDate_key)) {
                     tempEvents[eventDate_key] = {};
                 }
-                tempEvents[eventDate_key][eventTime] = rowDiv;
+                tempEvents[eventDate_key][eventTime] = eventDiv;
                 //
             }
 		}

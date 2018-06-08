@@ -1,4 +1,4 @@
-var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "teal", w"white", "black"]
+var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "teal", "white", "black"]
 
 function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 

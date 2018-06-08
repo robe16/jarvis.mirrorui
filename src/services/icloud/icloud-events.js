@@ -1,3 +1,5 @@
+var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "teal", "white", "black"]
+
 function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 
 	function getEvents() {
@@ -66,16 +68,36 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
                 var divEventDate = document.createElement("DIV");
                 divEventDate.className = "col-xs-2 material-text-light-primary icloud_events-date";
                 divEventDate.innerHTML = _time;
-                var divEventName = document.createElement("DIV");
-                divEventName.className = "col-xs-10 icloud_events-name";
-                divEventName.innerHTML = eventName;
+                //
+                var divEventNameColour = document.createElement("DIV");
+                divEventNameColour.className = "col-xs-10 icloud_events-name-and-blob";
+                //
+                var calendars = e.calendars;
+                for (cal in calendars) {
+                    // Create array of colurs needed for blobs
+                    var colourBlobs = []
+                    if (calendars[cal].colour != "none" && calColours.indexOf(calendars[cal].colour)) {
+                        colourBlobs.push(calendars[cal].colour);
+                    }
+                    //
+                    for (col in colourBlobs) {
+                        //
+                        var divColourBlob = document.createElement("DIV");
+                        divColourBlob.className = "icloud_events-blob icloud_events-blob_" + colourBlobs[col];
+                        divEventNameColour.appendChild(divColourBlob);
+                        //
+                    }
+                }
+                //
+                var txtEventName = document.createTextNode(eventName);
+                divEventNameColour.appendChild(txtEventName);
                 //
                 var rowDiv = document.createElement("DIV");
                 rowDiv.className = "row icloud_events-row";
                 rowDiv.appendChild(divEventDate);
-                rowDiv.appendChild(divEventName);
+                rowDiv.appendChild(divEventNameColour);
                 //
-                eventDiv.appendChild(rowDiv)
+                eventDiv.appendChild(rowDiv);
                 //
                 if (e.location != null) {
                     //

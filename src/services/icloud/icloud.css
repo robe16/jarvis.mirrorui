@@ -49,8 +49,9 @@
     padding-top: 5px;
 }
 
-.icloud_events-name {
+.icloud_events-date {
     font-size: 14;
+    padding: 0 2px 0 2px;
     font-weight: 700;
 }
 
@@ -59,8 +60,26 @@
     font-weight: 700;
 }
 
-.icloud_events-date {
-    font-size: 14;
-    padding: 0 2px 0 2px;
-    font-weight: 700;
+.icloud_events-name-and-blob {
+    display: inline-block;
 }
+
+.icloud_events-blob {
+    display: inline-block;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    padding: 2px;
+    margin-right: 2px;
+}
+.icloud_events-blob_red {background-color: red;}
+.icloud_events-blob_orange {background-color: orange;}
+.icloud_events-blob_yellow {background-color: yellow;}
+.icloud_events-blob_green {background-color: green;}
+.icloud_events-blob_teal {background-color: teal;}
+.icloud_events-blob_blue {background-color: blue;}
+.icloud_events-blob_purple {background-color: rebeccapurple;}
+.icloud_events-blob_pink {background-color: hotpink;}
+.icloud_events-blob_brown {background-color: saddlebrown;}
+.icloud_events-blob_white {background-color: white;}
+.icloud_events-blob_black {background-color: black; border-color: white; border-width: 1px; border-style: solid;}

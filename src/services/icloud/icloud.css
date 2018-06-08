@@ -50,8 +50,8 @@
 }
 
 .icloud_events-date {
-    font-size: 14;
     padding: 0 2px 0 2px;
+    font-size: 14;
     font-weight: 700;
 }
 
@@ -62,6 +62,8 @@
 
 .icloud_events-name-and-blob {
     display: inline-block;
+    font-size: 14;
+    font-weight: 700;
 }
 
 .icloud_events-blob {

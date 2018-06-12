@@ -262,11 +262,11 @@ def start_bottle(port_threads):
             raise HTTPError(status)
 
     ################################################################################################
-    # Events
+    # -
     ################################################################################################
 
-    # @get(uri_get_calendar_all)
-    # def get_calendar_all(option):
+    # @get(uri_get_x)
+    # def get_x(option):
     #     #
     #     args = _get_log_args(request)
     #     #

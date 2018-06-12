@@ -28,7 +28,7 @@ node {
         build_args = [""].join(" ")
         //
         //
-        docker_volumes = ["-v ${params.fileConfig}:/jarvis/mirrorui/config/config.js"].join(" ")
+        docker_volumes = ["-v ${params.fileConfig}:/jarvis/mirrorui/webfiles/config/config.js"].join(" ")
         //
         deployLogin = "${params.deploymentUsername}@${params.deploymentServer}"
         //

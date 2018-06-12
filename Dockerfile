@@ -10,5 +10,8 @@ WORKDIR /jarvis/mirrorui
 # Bundle app source
 COPY src /jarvis/mirrorui
 
+# Change working directory to accommodate for files inside 'webfiles' folder
+WORKDIR /jarvis/mirrorui/webfiles
+
 # Run application
 CMD python3 -m http.server

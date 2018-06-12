@@ -1,0 +1,22 @@
+{
+    "service_id": "mirrorui",
+    "name_long": "Kitchen Mirror",
+    "name_short": "Kitchen Mirror",
+    "groups": [
+        "Kitchen"
+    ],
+    "subservices": [],
+    "details": {
+    "modules": [
+      "startClock('top-left-1');",
+      "startEvents('top-left-2', 'http://192.168.0.xxx:1001');",
+      "startBirthdays('top-left-3', 'http://192.168.0.xxx:1001', dividerTop=true);",
+      "startWeather('top-right-1', 'http://192.168.0.xxx:1002');",
+      "startNews('bottom-left', 'http://192.168.0.xxx:1003');"
+    ]
+  },
+    "port": {
+        "broadcast": 8000,
+        "listener": [8000]
+    }
+}

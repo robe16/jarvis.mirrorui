@@ -1,7 +1,7 @@
 echo "Running Build ID: ${env.BUILD_ID}"
 
 string githubUrl = "https://github.com/robe16/jarvis.mirrorui.git"
-string serviceID = "jarvis.mirrorui"
+string serviceType = "mirrorui"
 String build_args
 String deployLogin
 String docker_img_name
@@ -15,6 +15,9 @@ node {
         //
         // Parameters passed through from the Jenkins Pipeline configuration
         //
+        string(name: 'serviceID',
+               description: 'serviceID that will be used for individual container image',
+               defaultValue: '*')
         string(name: 'deploymentServer',
                description: 'Server to deploy the files to',
                defaultValue: '*')
@@ -24,25 +27,29 @@ node {
         string(name: 'fileConfig',
                description: 'Location of config file on host device',
                defaultValue: '*')
+        string(name: 'folderLog',
+               description: 'Location of log directory on host device',
+               defaultValue: '*')
         //
         build_args = [""].join(" ")
         //
         //
-        docker_volumes = ["-v ${params.fileConfig}:/jarvis/mirrorui/webfiles/config/config.js"].join(" ")
+        docker_volumes = ["-v ${params.fileConfig}:/jarvis/${serviceType}/config/config.json",
+                          "-v ${params.folderLog}:/jarvis/${serviceType}/log/logfiles/"].join(" ")
         //
         deployLogin = "${params.deploymentUsername}@${params.deploymentServer}"
         //
     }
 
-	if (params["deploymentServer"]!="*" && params["deploymentUsername"]!="*" && params["fileConfig"]!="*") {
+    if (params["serviceID"]!="*" && params["deploymentServer"]!="*" && params["deploymentUsername"]!="*" && params["fileConfig"]!="*" && params["folderLog"]!="*") {
 
         stage("checkout") {
             git url: "${githubUrl}"
             sh "git rev-parse HEAD > .git/commit-id"
         }
 
-        docker_img_name_build_id = "${serviceID}:${env.BUILD_ID}"
-        docker_img_name_latest = "${serviceID}:latest"
+        docker_img_name_build_id = "${params.serviceID}:${env.BUILD_ID}"
+        docker_img_name_latest = "${params.serviceID}:latest"
 
         stage("build") {
             try {sh "docker image rm ${docker_img_name_latest}"} catch (error) {}
@@ -77,9 +84,9 @@ node {
 
         stage("start container"){
             // Stop existing container if running
-            sh "ssh ${deployLogin} \"docker rm -f ${serviceID} && echo \"container ${serviceID} removed\" || echo \"container ${serviceID} does not exist\"\""
+            sh "ssh ${deployLogin} \"docker rm -f ${params.serviceID} && echo \"container ${params.serviceID} removed\" || echo \"container ${params.serviceID} does not exist\"\""
             // Start new container
-            sh "ssh ${deployLogin} \"docker run --restart unless-stopped -e TZ=Europe/London -d ${docker_volumes} --net=host --name ${serviceID} ${docker_img_name_latest}\""
+            sh "ssh ${deployLogin} \"docker run --restart unless-stopped -e TZ=Europe/London -d ${docker_volumes} --net=host --name ${params.serviceID} ${docker_img_name_latest}\""
         }
 
         stage("reboot mirror"){

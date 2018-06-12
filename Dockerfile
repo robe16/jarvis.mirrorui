@@ -10,8 +10,11 @@ WORKDIR /jarvis/mirrorui
 # Bundle app source
 COPY src /jarvis/mirrorui
 
-# Change working directory to accommodate for files inside 'webfiles' folder
-WORKDIR /jarvis/mirrorui/webfiles
+# Copy app dependencies
+COPY requirements.txt requirements.txt
+
+# Install app dependencies
+RUN pip3 install -r requirements.txt
 
 # Run application
-CMD python3 -m http.server
+CMD python3 run.py

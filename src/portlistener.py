@@ -319,7 +319,7 @@ def start_bottle(port_threads):
 
     ################################################################################################
 
-    host = 'localhost'
+    host = '0.0.0.0'
     ports = get_cfg_port_listener()
     for port in ports:
         t = threading.Thread(target=bottle_run, args=(host, port,))

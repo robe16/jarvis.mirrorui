@@ -1,6 +1,6 @@
 from bottle import HTTPResponse, HTTPError
 
-from log_arguments import _get_log_args
+from apis.log_arguments import _get_log_args
 from config.config import get_cfg_serviceid, get_cfg_name_long, get_cfg_name_short, get_cfg_groups, get_cfg_subservices
 from resources.global_resources.log_vars import logPass, logFail, logException
 from resources.global_resources.variables import *

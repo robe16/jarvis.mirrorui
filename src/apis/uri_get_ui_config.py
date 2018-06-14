@@ -1,7 +1,7 @@
 from bottle import HTTPResponse, HTTPError
 
-from log_arguments import _get_log_args
-from cors import enable_cors
+from apis.log_arguments import _get_log_args
+from apis.cors import enable_cors
 from config.config import get_cfg_details_modules
 from resources.global_resources.log_vars import logPass, logFail, logException
 from resources.global_resources.variables import *

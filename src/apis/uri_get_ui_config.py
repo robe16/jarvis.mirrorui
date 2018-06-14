@@ -1,4 +1,4 @@
-from bottle import HTTPResponse, HTTPError
+from bottle import HTTPResponse, HTTPResponse
 
 from apis.log_arguments import _get_log_args
 from apis.cors import enable_cors
@@ -43,4 +43,4 @@ def get_ui_config(request):
         args['exception'] = e
         log_inbound(**args)
         #
-        raise HTTPError(status)
+        raise HTTPResponse(status=status)

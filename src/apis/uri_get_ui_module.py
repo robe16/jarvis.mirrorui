@@ -1,5 +1,5 @@
 import os
-from bottle import static_file, HTTPError
+from bottle import static_file, HTTPResponse
 
 from apis.log_arguments import _get_log_args
 from apis.cors import enable_cors
@@ -39,4 +39,4 @@ def get_ui_module(request, service, file):
         args['exception'] = e
         log_inbound(**args)
         #
-        raise HTTPError(status)
+        raise HTTPResponse(status=status)

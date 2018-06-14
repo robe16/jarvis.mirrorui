@@ -1,7 +1,8 @@
 from resources.global_resources.variables import service_header_clientid_label
 from common_functions.query_to_string import convert_query_to_string
 
-def _get_log_args(request):
+
+def get_request_log_args(request):
     #
     urlparts = request.urlparts
     #

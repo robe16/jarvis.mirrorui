@@ -1,15 +1,15 @@
 from bottle import HTTPResponse, HTTPError
 
-from apis.log_arguments import _get_log_args
+from common_functions.request_log_args import get_request_log_args
 from config.config import get_cfg_serviceid, get_cfg_name_long, get_cfg_name_short, get_cfg_groups, get_cfg_subservices
-from resources.global_resources.log_vars import logPass, logFail, logException
-from resources.global_resources.variables import *
 from log.log import log_inbound
+from resources.global_resources.log_vars import logPass, logException
+from resources.global_resources.variables import *
 
 
 def get_config(request):
     #
-    args = _get_log_args(request)
+    args = get_request_log_args(request)
     #
     try:
         #

@@ -1,16 +1,17 @@
 import os
+
 from bottle import static_file, HTTPResponse
 
-from apis.log_arguments import _get_log_args
-from apis.cors import enable_cors
-from resources.global_resources.log_vars import logPass, logFail, logException
-from resources.global_resources.variables import *
+from common_functions.request_enable_cors import enable_cors
+from common_functions.request_log_args import get_request_log_args
 from log.log import log_inbound
+from resources.global_resources.log_vars import logPass, logException
+from resources.global_resources.variables import *
 
 
-def get_ui_resource(request, type, file):
+def get_ui_resource(request, type, filename):
     #
-    args = _get_log_args(request)
+    args = get_request_log_args(request)
     #
     try:
         #
@@ -23,7 +24,7 @@ def get_ui_resource(request, type, file):
         #
         root = os.path.join(os.path.dirname(__file__), '..', 'webfiles/static/{type}'.format(type=type))
         #
-        response = static_file(file, root=root)
+        response = static_file(filename, root=root)
         response.status = status
         enable_cors(response)
         #

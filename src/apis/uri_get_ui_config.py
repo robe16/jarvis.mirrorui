@@ -1,16 +1,16 @@
-from bottle import HTTPResponse, HTTPResponse
+from bottle import HTTPResponse
 
-from apis.log_arguments import _get_log_args
-from apis.cors import enable_cors
+from common_functions.request_enable_cors import enable_cors
+from common_functions.request_log_args import get_request_log_args
 from config.config import get_cfg_details_modules
-from resources.global_resources.log_vars import logPass, logFail, logException
-from resources.global_resources.variables import *
 from log.log import log_inbound
+from resources.global_resources.log_vars import logPass, logException
+from resources.global_resources.variables import *
 
 
 def get_ui_config(request):
     #
-    args = _get_log_args(request)
+    args = get_request_log_args(request)
     #
     try:
         #

@@ -1,3 +1,4 @@
+import os
 from bottle import static_file, HTTPError
 
 from apis.log_arguments import _get_log_args
@@ -20,7 +21,9 @@ def get_ui_module(request, service, file):
         args['description'] = '-'
         log_inbound(**args)
         #
-        response = static_file(file, root='../webfiles/services/{service}'.format(service=service))
+        root = os.path.join(os.path.dirname(__file__), '..', 'webfiles/services/{service}'.format(service=service))
+        #
+        response = static_file(file, root=root)
         response.status = status
         enable_cors(response)
         #

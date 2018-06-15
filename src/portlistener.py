@@ -8,11 +8,11 @@ from log.log import log_internal
 from resources.global_resources.log_vars import logPass
 from resources.lang.enGB.logs import *
 
-from apis.uri_config import get_config
-from apis.uri_get_ui_index import get_ui_index
-from apis.uri_get_ui_config import get_ui_config
-from apis.uri_get_ui_resource import get_ui_resource
-from apis.uri_get_ui_module import get_ui_module
+from apis.get_config import get_config
+from apis.get_ui_index import get_ui_index
+from apis.get_ui_config import get_ui_config
+from apis.get_ui_resource import get_ui_resource
+from apis.get_ui_module import get_ui_module
 
 
 def start_bottle(port_threads):

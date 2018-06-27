@@ -59,7 +59,8 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 		    //
 		    if (eventDateObj_end > now) {
                 //
-                var daysCount = moment(eventDate_end, "DD MMM").diff(moment(eventDate_start, "DD MMM"), "days") + 1;
+                var daysCount = eventDateObj_end.diff(eventDateObj_start, "days");
+                if (!daysCount) {daysCount=1;}
                 //
                 for (var d = 0; d < daysCount; d++) {
                     //

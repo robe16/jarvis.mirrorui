@@ -50,86 +50,103 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 		    var eventDateObj_start = moment(e.start, "YYYY-MM-DD HH:mm");
 		    var eventDateObj_end = moment(e.end, "YYYY-MM-DD HH:mm");
 		    var eventDate_key = eventDateObj_start.format("YYYY-MM-DD");
-		    var eventDate = eventDateObj_start.format("DD MMM");
-		    var eventTime = eventDateObj_start.format("HH:mm");
+		    var eventDate_start = eventDateObj_start.format("DD MMM");
+		    var eventTime_start = eventDateObj_start.format("HH:mm");
+		    var eventDate_end = eventDateObj_end.format("DD MMM");
+		    var eventTime_end = eventDateObj_end.format("HH:mm");
 		    //
 		    var eventName = e.title;
 		    //
 		    if (eventDateObj_end > now) {
                 //
-                if (e.allDay) {
-                    var _time = "all day";
-                } else {
-                    var _time = eventTime;
-                }
+                var daysCount = moment(eventDate_end, "DD MMM").diff(moment(eventDate_start, "DD MMM"), "days") + 1;
                 //
-                var eventDiv = document.createElement("DIV");
-                //
-                var divEventDate = document.createElement("DIV");
-                divEventDate.className = "col-xs-2 material-text-light-primary icloud_events-date";
-                divEventDate.innerHTML = _time;
-                //
-                var divEventNameColour = document.createElement("DIV");
-                divEventNameColour.className = "col-xs-10 icloud_events-name-and-blob";
-                //
-                var calendars = e.calendars;
-                for (cal in calendars) {
-                    // Create array of colurs needed for blobs
-                    var colourBlobs = []
-                    if (calendars[cal].colour != "none" && calColours.indexOf(calendars[cal].colour)) {
-                        colourBlobs.push(calendars[cal].colour);
+                for (var d = 0; d < daysCount; d++) {
+                    //
+                    if (d > 0) {
+                        eventDateObj_start.add(1, 'days');
+                        var eventDate_key = eventDateObj_start.format("YYYY-MM-DD");
+		                var eventDate_start = eventDateObj_start.format("DD MMM");
                     }
                     //
-                    for (col in colourBlobs) {
+                    if (e.allDay) {
+                        var _time = "all day";
+                    } else if (d > 0 && eventDate_end != eventDate_start) {
+                        var _time = "all day";
+                    } else if (d > 0 && eventDate_end == eventDate_start) {
+                        var _time = "00:00";
+                    } else {
+                        var _time = eventTime_start;
+                    }
+                    //
+                    var eventDiv = document.createElement("DIV");
+                    //
+                    var divEventDate = document.createElement("DIV");
+                    divEventDate.className = "col-xs-2 material-text-light-primary icloud_events-date";
+                    divEventDate.innerHTML = _time;
+                    //
+                    var divEventNameColour = document.createElement("DIV");
+                    divEventNameColour.className = "col-xs-10 icloud_events-name-and-blob";
+                    //
+                    var calendars = e.calendars;
+                    for (cal in calendars) {
+                        // Create array of colurs needed for blobs
+                        var colourBlobs = []
+                        if (calendars[cal].colour != "none" && calColours.indexOf(calendars[cal].colour)) {
+                            colourBlobs.push(calendars[cal].colour);
+                        }
                         //
-                        var divColourBlob = document.createElement("DIV");
-                        divColourBlob.className = "icloud_events-blob icloud_events-blob_" + colourBlobs[col];
-                        divEventNameColour.appendChild(divColourBlob);
-                        //
-                    }
-                }
-                //
-                var txtEventName = document.createTextNode(eventName);
-                divEventNameColour.appendChild(txtEventName);
-                //
-                var rowDiv = document.createElement("DIV");
-                rowDiv.className = "row icloud_events-row";
-                rowDiv.appendChild(divEventDate);
-                rowDiv.appendChild(divEventNameColour);
-                //
-                eventDiv.appendChild(rowDiv);
-                //
-                if (e.location != null) {
-                    //
-                    var eventLocation = e.location;
-                    //
-//                    eventLocation = eventLocation.replace('\n', ', ')
-                    //
-                    if (eventLocation.indexOf('\n') > -1) {
-                        eventLocation = eventLocation.split('\n');
-                        eventLocation = eventLocation[0];
-                    } else if (eventLocation.indexOf(',') > -1) {
-                        eventLocation = eventLocation.split(',');
-                        eventLocation = eventLocation[0];
+                        for (col in colourBlobs) {
+                            //
+                            var divColourBlob = document.createElement("DIV");
+                            divColourBlob.className = "icloud_events-blob icloud_events-blob_" + colourBlobs[col];
+                            divEventNameColour.appendChild(divColourBlob);
+                            //
+                        }
                     }
                     //
-                    var divEventLocation = document.createElement("DIV");
-                    divEventLocation.className = "col-xs-10 col-xs-offset-2 material-text-light-secondary icloud_events-location";
-                    divEventLocation.innerHTML = eventLocation;
+                    var txtEventName = document.createTextNode(eventName);
+                    divEventNameColour.appendChild(txtEventName);
                     //
                     var rowDiv = document.createElement("DIV");
                     rowDiv.className = "row icloud_events-row";
-                    rowDiv.appendChild(divEventLocation);
+                    rowDiv.appendChild(divEventDate);
+                    rowDiv.appendChild(divEventNameColour);
                     //
-                    eventDiv.appendChild(rowDiv)
+                    eventDiv.appendChild(rowDiv);
+                    //
+                    if (e.location != null) {
+                        //
+                        var eventLocation = e.location;
+                        //
+    //                    eventLocation = eventLocation.replace('\n', ', ')
+                        //
+                        if (eventLocation.indexOf('\n') > -1) {
+                            eventLocation = eventLocation.split('\n');
+                            eventLocation = eventLocation[0];
+                        } else if (eventLocation.indexOf(',') > -1) {
+                            eventLocation = eventLocation.split(',');
+                            eventLocation = eventLocation[0];
+                        }
+                        //
+                        var divEventLocation = document.createElement("DIV");
+                        divEventLocation.className = "col-xs-10 col-xs-offset-2 material-text-light-secondary icloud_events-location";
+                        divEventLocation.innerHTML = eventLocation;
+                        //
+                        var rowDiv = document.createElement("DIV");
+                        rowDiv.className = "row icloud_events-row";
+                        rowDiv.appendChild(divEventLocation);
+                        //
+                        eventDiv.appendChild(rowDiv)
+                        //
+                    }
+                    //
+                    if (!tempEvents.hasOwnProperty(eventDate_key)) {
+                        tempEvents[eventDate_key] = {};
+                    }
+                    tempEvents[eventDate_key][eventTime_start] = eventDiv;
                     //
                 }
-                //
-                if (!tempEvents.hasOwnProperty(eventDate_key)) {
-                    tempEvents[eventDate_key] = {};
-                }
-                tempEvents[eventDate_key][eventTime] = eventDiv;
-                //
             }
 		}
 		//

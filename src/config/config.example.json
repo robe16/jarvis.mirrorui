@@ -15,8 +15,5 @@
       "startNews('bottom-left', 'http://192.168.0.xxx:1003');"
     ]
   },
-    "port": {
-        "broadcast": 8000,
-        "listener": [8000]
-    }
+    "port": 8000
 }

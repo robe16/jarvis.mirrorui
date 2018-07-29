@@ -1,9 +1,7 @@
-import threading
-
 from bottle import get
 from bottle import request, run
 
-from config.config import get_cfg_port_listener
+from config.config import get_cfg_port
 from log.log import log_internal
 from resources.global_resources.log_vars import logPass
 from resources.lang.enGB.logs import *
@@ -15,7 +13,7 @@ from apis.get_ui_resource import get_ui_resource
 from apis.get_ui_module import get_ui_module
 
 
-def start_bottle(port_threads):
+def start_bottle():
 
     ################################################################################################
     # Create device
@@ -49,21 +47,10 @@ def start_bottle(port_threads):
 
     ################################################################################################
 
-    def bottle_run(x_host, x_port):
-        log_internal(logPass, logDescPortListener.format(port=x_port), description='started')
-        run(host=x_host, port=x_port, debug=True)
+    host = 'localhost'
+    port = get_cfg_port()
+    run(host=host, port=port, server='paste', debug=True)
+
+    log_internal(logPass, logDescPortListener.format(port=port), description='started')
 
     ################################################################################################
-
-    host = '0.0.0.0'
-    ports = get_cfg_port_listener()
-    for port in ports:
-        t = threading.Thread(target=bottle_run, args=(host, port,))
-        port_threads.append(t)
-
-    # Start all threads
-    for t in port_threads:
-        t.start()
-    # Use .join() for all threads to keep main process 'alive'
-    for t in port_threads:
-        t.join()

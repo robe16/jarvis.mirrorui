@@ -4,6 +4,7 @@ function service_init(service, bundle, index, url=false, dividerTop=false, divid
     //
     var serviceDiv = document.createElement("DIV");
     serviceDiv.id = serviceId;
+    serviceDiv.style.display = "block";
     serviceDiv.draggable = true;
     serviceDiv.ondragstart = function(){dragstart(event);};
     serviceDiv.ondragend = function(){dragstop(event);};
@@ -37,6 +38,7 @@ function service_init(service, bundle, index, url=false, dividerTop=false, divid
     var imgBtn = document.createElement("IMG")
     imgBtn.className = "btn_img btn_pointer grayscale";
     imgBtn.src = "/images/modules/" + img;
+    imgBtn.onclick = function(){toggleView(serviceId);};
     document.getElementById("btn_bar").appendChild(imgBtn);
     //
 }

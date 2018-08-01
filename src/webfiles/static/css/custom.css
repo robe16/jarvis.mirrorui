@@ -45,3 +45,17 @@ body {
 .material-text-light-secondary {color: #CCC;}
 .material-text-light-divider {color: #999;}
 .material-text-light-disabled {color: #333;}
+
+
+.btn_bar {
+    position: fixed;
+	bottom: 0;
+	left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn_img {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}

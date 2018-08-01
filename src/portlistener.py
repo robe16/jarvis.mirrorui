@@ -10,6 +10,7 @@ from apis.get_config import get_config
 from apis.get_ui_index import get_ui_index
 from apis.get_ui_config import get_ui_config
 from apis.get_ui_resource import get_ui_resource
+from apis.get_ui_image import get_ui_image
 from apis.get_ui_module import get_ui_module
 
 
@@ -34,6 +35,10 @@ def start_bottle():
     @get('/static/<type>/<filename>')
     def api_get_ui_resource(type, filename):
         return get_ui_resource(request, type, filename)
+
+    @get('/images/<type>/<filename>')
+    def api_get_ui_image(type, filename):
+        return get_ui_image(request, type, filename)
 
     @get('/services/<service>/<filename>')
     def api_get_ui_module(service, filename):

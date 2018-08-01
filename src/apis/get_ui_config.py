@@ -23,7 +23,28 @@ def get_ui_config(request):
         #
         r = 'window.onload=function() {'
         for module in get_cfg_details_modules():
-            r += module
+            service = module['service']
+            bundle = module['bundle']
+            index = module['index']
+            try:
+                url = module['url']
+            except:
+                url = False
+            try:
+                dividerTop = module['dividerTop']
+            except:
+                dividerTop = False
+            try:
+                dividerBottom = module['dividerBottom']
+            except:
+                dividerBottom = False
+            r += "service_init('{service}', '{bundle}', {index}, '{url}', {dividerTop}, {dividerBottom});".format(service=service,
+                                                                                                                  bundle=bundle,
+                                                                                                                  index=index,
+                                                                                                                  url=url,
+                                                                                                                  dividerTop=str(dividerTop).lower(),
+                                                                                                                  dividerBottom=str(dividerBottom).lower())
+
         r += '}'
         #
         response = HTTPResponse()

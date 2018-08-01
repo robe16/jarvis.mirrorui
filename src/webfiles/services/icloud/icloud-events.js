@@ -1,16 +1,6 @@
 var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "teal", "white", "black"]
 
-function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
-
-    randId = generateId(10);
-    var eventDivPId = "eventDiv-" + randId;
-
-    var eventDivP = document.createElement("DIV");
-    eventDivP.id = eventDivPId;
-    eventDivP.draggable = true;
-    eventDivP.ondragstart = function(){dragstart(event);};
-    eventDivP.ondragend = function(){dragstop(event);};
-    document.getElementById(pageLocation).appendChild(eventDivP);
+function startEvents(serviceId, serviceIP, dividerTop, dividerBottom) {
 
 	function getEvents() {
 		// Retrieve events from server
@@ -194,10 +184,10 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 		    //
 		}
 		//
-        document.getElementById(eventDivPId).innerHTML = "";
-        if (dividerTop) {document.getElementById(eventDivPId).appendChild(dividerDiv());}
-        document.getElementById(eventDivPId).appendChild(eventsDiv);
-        if (dividerBottom) {document.getElementById(eventDivPId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).innerHTML = "";
+        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).appendChild(eventsDiv);
+        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
         //
 	}
 

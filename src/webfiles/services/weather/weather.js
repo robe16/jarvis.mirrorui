@@ -1,14 +1,4 @@
-function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
-
-    randId = generateId(10);
-    var weatherDivPId = "weatherDiv-" + randId;
-
-    var weatherDivP = document.createElement("DIV");
-    weatherDivP.id = weatherDivPId;
-    weatherDivP.draggable = true;
-    weatherDivP.ondragstart = function(){dragstart(event);};
-    weatherDivP.ondragend = function(){dragstop(event);};
-    document.getElementById(pageLocation).appendChild(weatherDivP);
+function startWeather(serviceId, serviceIP, dividerTop, dividerBottom) {
 	
 	function GetWeather() {
 		// Retrieve weather from server
@@ -369,10 +359,10 @@ function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=f
 			//
 		}
 		//
-        document.getElementById(weatherDivPId).innerHTML = "";
-        if (dividerTop) {document.getElementById(weatherDivPId).appendChild(dividerDiv());}
-		document.getElementById(weatherDivPId).appendChild(weatherDiv);
-        if (dividerBottom) {document.getElementById(weatherDivPId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).innerHTML = "";
+        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
+		document.getElementById(serviceId).appendChild(weatherDiv);
+        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
         //
 	}
 	

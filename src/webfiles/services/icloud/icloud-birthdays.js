@@ -1,14 +1,4 @@
-function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
-
-    randId = generateId(10);
-    var birthdayDivPId = "birthdayDiv-" + randId;
-
-    var birthdayDivP = document.createElement("DIV");
-    birthdayDivP.id = birthdayDivPId;
-    birthdayDivP.draggable = true;
-    birthdayDivP.ondragstart = function(){dragstart(event);};
-    birthdayDivP.ondragend = function(){dragstop(event);};
-    document.getElementById(pageLocation).appendChild(birthdayDivP);
+function startBirthdays(serviceId, serviceIP, dividerTop, dividerBottom) {
 
 	function getBirthdays() {
 		// Retrieve birthdays from server
@@ -131,10 +121,10 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
 		  birthdayDiv.appendChild(tempBirthdays[k]);
 		}
 		//
-        document.getElementById(birthdayDivPId).innerHTML = "";
-        if (dividerTop) {document.getElementById(birthdayDivPId).appendChild(dividerDiv());}
-        document.getElementById(birthdayDivPId).appendChild(birthdayDiv);
-        if (dividerBottom) {document.getElementById(birthdayDivPId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).innerHTML = "";
+        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).appendChild(birthdayDiv);
+        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
         //
 	}
 

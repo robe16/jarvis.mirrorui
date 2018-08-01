@@ -1,14 +1,4 @@
-function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
-
-    randId = generateId(10);
-    var newsDivPId = "clockDiv-" + randId;
-
-    var newsDivP = document.createElement("DIV");
-    newsDivP.id = newsDivPId;
-    newsDivP.draggable = true;
-    newsDivP.ondragstart = function(){dragstart(event);};
-    newsDivP.ondragend = function(){dragstop(event);};
-    document.getElementById(pageLocation).appendChild(newsDivP);
+function startNews(serviceId, serviceIP, dividerTop, dividerBottom) {
 	
 	function GetNews() {
 		// Retrieve news from server
@@ -88,10 +78,10 @@ function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=fals
 		}
 		//
 		//
-        document.getElementById(newsDivPId).innerHTML = "";
-        if (dividerTop) {document.getElementById(newsDivPId).appendChild(dividerDiv());}
-        document.getElementById(newsDivPId).appendChild(newsDiv);
-        if (dividerBottom) {document.getElementById(newsDivPId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).innerHTML = "";
+        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
+        document.getElementById(serviceId).appendChild(newsDiv);
+        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
         //
 	}
 	

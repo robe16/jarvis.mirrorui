@@ -1,5 +1,15 @@
 function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 
+    randId = generateId(10);
+    var birthdayDivPId = "birthdayDiv-" + randId;
+
+    var birthdayDivP = document.createElement("DIV");
+    birthdayDivP.id = birthdayDivPId;
+    birthdayDivP.draggable = true;
+    birthdayDivP.ondragstart = function(){dragstart(event);};
+    birthdayDivP.ondragend = function(){dragstop(event);};
+    document.getElementById(pageLocation).appendChild(birthdayDivP);
+
 	function getBirthdays() {
 		// Retrieve birthdays from server
 		//
@@ -15,18 +25,6 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
 	}
 
 	function createBirthdays(data) {
-	    //
-		document.getElementById(pageLocation).innerHTML = "";
-		//
-        if (dividerTop || dividerBottom) {
-            var divider = document.createElement("HR");
-            divider.className = "divider material-text-light-secondary";
-            var dividerDiv = document.createElement("DIV");
-            dividerDiv.className = "row icloud_birthday-row";
-            dividerDiv.appendChild(divider);
-        }
-        //
-        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var birthdayDiv = document.createElement("DIV");
 		birthdayDiv.className = "icloud_birthday-container";
@@ -133,10 +131,11 @@ function startBirthdays(pageLocation, serviceIP, dividerTop=false, dividerBottom
 		  birthdayDiv.appendChild(tempBirthdays[k]);
 		}
 		//
-		// Add to body of document
-		document.getElementById(pageLocation).appendChild(birthdayDiv);
+        document.getElementById(birthdayDivPId).innerHTML = "";
+        if (dividerTop) {document.getElementById(birthdayDivPId).appendChild(dividerDiv());}
+        document.getElementById(birthdayDivPId).appendChild(birthdayDiv);
+        if (dividerBottom) {document.getElementById(birthdayDivPId).appendChild(dividerDiv());}
         //
-        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 
 	getBirthdays();

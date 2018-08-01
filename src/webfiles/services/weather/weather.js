@@ -1,4 +1,14 @@
 function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
+
+    randId = generateId(10);
+    var weatherDivPId = "weatherDiv-" + randId;
+
+    var weatherDivP = document.createElement("DIV");
+    weatherDivP.id = weatherDivPId;
+    weatherDivP.draggable = true;
+    weatherDivP.ondragstart = function(){dragstart(event);};
+    weatherDivP.ondragend = function(){dragstop(event);};
+    document.getElementById(pageLocation).appendChild(weatherDivP);
 	
 	function GetWeather() {
 		// Retrieve weather from server
@@ -31,18 +41,16 @@ function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=f
 		//
 		//
 		for (d in forecastDaysKeys) {
-		    //
-		    document.getElementById(pageLocation).innerHTML = "";
             //
-            if (dividerTop || dividerBottom) {
-                var divider = document.createElement("HR");
-                divider.className = "divider material-text-light-secondary";
-                var dividerDiv = document.createElement("DIV");
-                dividerDiv.className = "row icloud_events-row";
-                dividerDiv.appendChild(divider);
-            }
-            //
-            if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
+//            if (dividerTop || dividerBottom) {
+//                var divider = document.createElement("HR");
+//                divider.className = "divider material-text-light-secondary";
+//                var dividerDiv = document.createElement("DIV");
+//                dividerDiv.className = "row icloud_events-row";
+//                dividerDiv.appendChild(divider);
+//            }
+//            //
+//            if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		    //
 		    day_key = forecastDaysKeys[d];
 		    //
@@ -361,10 +369,11 @@ function startWeather(pageLocation, serviceIP, dividerTop=false, dividerBottom=f
 			//
 		}
 		//
-		// Add to body of document
-		document.getElementById(pageLocation).appendChild(weatherDiv);
+        document.getElementById(weatherDivPId).innerHTML = "";
+        if (dividerTop) {document.getElementById(weatherDivPId).appendChild(dividerDiv());}
+		document.getElementById(weatherDivPId).appendChild(weatherDiv);
+        if (dividerBottom) {document.getElementById(weatherDivPId).appendChild(dividerDiv());}
         //
-        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 	
 	GetWeather();

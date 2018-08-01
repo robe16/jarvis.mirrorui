@@ -2,6 +2,16 @@ var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", 
 
 function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
 
+    randId = generateId(10);
+    var eventDivPId = "eventDiv-" + randId;
+
+    var eventDivP = document.createElement("DIV");
+    eventDivP.id = eventDivPId;
+    eventDivP.draggable = true;
+    eventDivP.ondragstart = function(){dragstart(event);};
+    eventDivP.ondragend = function(){dragstop(event);};
+    document.getElementById(pageLocation).appendChild(eventDivP);
+
 	function getEvents() {
 		// Retrieve events from server
 		//
@@ -17,18 +27,6 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 	}
 
 	function createEvents(data) {
-	    //
-		document.getElementById(pageLocation).innerHTML = "";
-        //
-        if (dividerTop || dividerBottom) {
-            var divider = document.createElement("HR");
-            divider.className = "divider material-text-light-secondary";
-            var dividerDiv = document.createElement("DIV");
-            dividerDiv.className = "row icloud_events-row";
-            dividerDiv.appendChild(divider);
-        }
-        //
-        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var eventsDiv = document.createElement("DIV");
 		eventsDiv.className = "icloud_events-container";
@@ -196,10 +194,11 @@ function startEvents(pageLocation, serviceIP, dividerTop=false, dividerBottom=fa
 		    //
 		}
 		//
-		// Add to body of document
-		document.getElementById(pageLocation).appendChild(eventsDiv);
+        document.getElementById(eventDivPId).innerHTML = "";
+        if (dividerTop) {document.getElementById(eventDivPId).appendChild(dividerDiv());}
+        document.getElementById(eventDivPId).appendChild(eventsDiv);
+        if (dividerBottom) {document.getElementById(eventDivPId).appendChild(dividerDiv());}
         //
-        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 
 	getEvents();

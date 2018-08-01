@@ -1,4 +1,14 @@
 function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=false) {
+
+    randId = generateId(10);
+    var newsDivPId = "clockDiv-" + randId;
+
+    var newsDivP = document.createElement("DIV");
+    newsDivP.id = newsDivPId;
+    newsDivP.draggable = true;
+    newsDivP.ondragstart = function(){dragstart(event);};
+    newsDivP.ondragend = function(){dragstop(event);};
+    document.getElementById(pageLocation).appendChild(newsDivP);
 	
 	function GetNews() {
 		// Retrieve news from server
@@ -11,18 +21,6 @@ function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=fals
 	}
 	
 	function createNews(data) {
-	    //
-		document.getElementById(pageLocation).innerHTML = "";
-        //
-        if (dividerTop || dividerBottom) {
-            var divider = document.createElement("HR");
-            divider.className = "divider material-text-light-secondary";
-            var dividerDiv = document.createElement("DIV");
-            dividerDiv.className = "row icloud_events-row";
-            dividerDiv.appendChild(divider);
-        }
-        //
-        if (dividerTop) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 		//
 		var newsDiv = document.createElement("DIV");
 		newsDiv.className = "news_container";
@@ -89,10 +87,12 @@ function startNews(pageLocation, serviceIP, dividerTop=false, dividerBottom=fals
 		  newsDiv.appendChild(tempArticles[k]);
 		}
 		//
-		// Add to body of document
-		document.getElementById(pageLocation).appendChild(newsDiv);
+		//
+        document.getElementById(newsDivPId).innerHTML = "";
+        if (dividerTop) {document.getElementById(newsDivPId).appendChild(dividerDiv());}
+        document.getElementById(newsDivPId).appendChild(newsDiv);
+        if (dividerBottom) {document.getElementById(newsDivPId).appendChild(dividerDiv());}
         //
-        if (dividerBottom) {document.getElementById(pageLocation).appendChild(dividerDiv);}
 	}
 	
 	GetNews();

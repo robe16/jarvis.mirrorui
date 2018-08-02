@@ -133,7 +133,14 @@ function startEvents(serviceId, serviceIP, dividerTop, dividerBottom) {
                     if (!tempEvents.hasOwnProperty(eventDate_key)) {
                         tempEvents[eventDate_key] = {};
                     }
-                    tempEvents[eventDate_key][eventTime_start] = eventDiv;
+                    // If multiple events with same start date and time, issue occurs with overwriting
+                    // Following code rectifies this.
+                    if (!tempEvents[eventDate_key].hasOwnProperty(eventTime_start)) {
+                        tempEvents[eventDate_key][eventTime_start] = eventDiv;
+                    } else {
+                        eventTime_start += (tempEvents[eventDate_key].length + 1)
+                        tempEvents[eventDate_key][eventTime_start] = eventDiv;
+                    }
                     //
                 }
             }

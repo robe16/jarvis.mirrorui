@@ -3,6 +3,7 @@ function service_init(service, bundle, index, url=false, dividerTop=false, divid
     var serviceId = service + "-" + generateId(10);
     //
     var serviceDiv = document.createElement("DIV");
+    serviceDiv.className = "module";
     serviceDiv.id = serviceId;
     serviceDiv.style.display = "block";
     serviceDiv.draggable = true;
@@ -35,7 +36,7 @@ function service_init(service, bundle, index, url=false, dividerTop=false, divid
             return false
     }
     //
-    var imgBtn = document.createElement("IMG")
+    var imgBtn = document.createElement("IMG");
     imgBtn.className = "btn_img btn_pointer grayscale";
     imgBtn.src = "/images/modules/" + img;
     imgBtn.onclick = function(){toggleView(serviceId);};

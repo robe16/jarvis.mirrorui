@@ -17,6 +17,9 @@ body {
 	left: 50%;
     transform: translateX(-50%);
 }
+.middle {
+	top: 50%;
+}
 .right {
 	right: 0;
 }
@@ -24,6 +27,9 @@ body {
 #top-left {width: 33%;}
 #top-centre {width: 33%;}
 #top-right {width: 33%;}
+#middle-left {width: 33%;}
+#middle-centre {width: 33%;}
+#middle-right {width: 33%;}
 #bottom-left {width: 50%;}
 #bottom-right {width: 50%;}
 

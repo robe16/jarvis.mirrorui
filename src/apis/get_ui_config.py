@@ -21,30 +21,44 @@ def get_ui_config(request):
         args['description'] = '-'
         log_inbound(**args)
         #
+        modules = get_cfg_details_modules()
+        tempModules = {}
+        for module in modules:
+            if not module['bundle'] in tempModules:
+                tempModules[module['bundle']] = {}
+            tempModules[module['bundle']][module['index']] = module
+        #
         r = 'window.onload=function() {'
-        for module in get_cfg_details_modules():
-            service = module['service']
-            bundle = module['bundle']
-            index = module['index']
-            try:
-                url = module['url']
-            except:
-                url = False
-            try:
-                dividerTop = module['dividerTop']
-            except:
-                dividerTop = False
-            try:
-                dividerBottom = module['dividerBottom']
-            except:
-                dividerBottom = False
-            r += "service_init('{service}', '{bundle}', {index}, '{url}', {dividerTop}, {dividerBottom});".format(service=service,
-                                                                                                                  bundle=bundle,
-                                                                                                                  index=index,
-                                                                                                                  url=url,
-                                                                                                                  dividerTop=str(dividerTop).lower(),
-                                                                                                                  dividerBottom=str(dividerBottom).lower())
-
+        #
+        for bundleKey in tempModules:
+            modules = tempModules[bundleKey]
+            #
+            for moduleKey in sorted(modules.iterkeys()):
+                module = modules[moduleKey]
+                #
+                service = module['service']
+                bundle = module['bundle']
+                index = module['index']
+                #
+                try:
+                    url = module['url']
+                except:
+                    url = False
+                try:
+                    dividerTop = module['dividerTop']
+                except:
+                    dividerTop = False
+                try:
+                    dividerBottom = module['dividerBottom']
+                except:
+                    dividerBottom = False
+                r += "service_init('{service}', '{bundle}', {index}, '{url}', {dividerTop}, {dividerBottom});".format(service=service,
+                                                                                                                      bundle=bundle,
+                                                                                                                      index=index,
+                                                                                                                      url=url,
+                                                                                                                      dividerTop=str(dividerTop).lower(),
+                                                                                                                      dividerBottom=str(dividerBottom).lower())
+                #
         r += '}'
         #
         response = HTTPResponse()

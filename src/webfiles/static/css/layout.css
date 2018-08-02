@@ -27,7 +27,7 @@ body {
 #bottom-left {width: 50%;}
 #bottom-right {width: 50%;}
 
-.bundle-group {
+.module-group {
 	position: fixed;
 	padding: 10px;
 }

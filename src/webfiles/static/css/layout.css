@@ -13,18 +13,21 @@ body {
 .left {
 	left: 0;
 }
-.middle {
+.centre {
 	left: 50%;
-}
-.middle-bundle-group {
     transform: translateX(-50%);
 }
 .right {
 	right: 0;
 }
 
+#top-left {width: 33%;}
+#top-centre {width: 33%;}
+#top-right {width: 33%;}
+#bottom-left {width: 50%;}
+#bottom-right {width: 50%;}
+
 .bundle-group {
 	position: fixed;
 	padding: 10px;
-	/* border: 1px solid red; */
 }

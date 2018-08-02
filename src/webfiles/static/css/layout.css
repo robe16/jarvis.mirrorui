@@ -24,9 +24,9 @@ body {
 	right: 0;
 }
 
-#top-left {width: 33%;}
-#top-centre {width: 33%;}
-#top-right {width: 33%;}
+#top-left {width: 25%;}
+#top-centre {width: 50%;}
+#top-right {width: 25%;}
 #middle-centre {width: 50%;}
 #bottom-left {width: 50%;}
 #bottom-right {width: 50%;}

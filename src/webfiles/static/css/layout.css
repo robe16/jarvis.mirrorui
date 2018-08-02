@@ -27,11 +27,14 @@ body {
 #top-left {width: 33%;}
 #top-centre {width: 33%;}
 #top-right {width: 33%;}
-#middle-left {width: 33%;}
-#middle-centre {width: 33%;}
-#middle-right {width: 33%;}
+#middle-centre {width: 50%;}
 #bottom-left {width: 50%;}
 #bottom-right {width: 50%;}
+
+/* this item treated differently to combine transformations */
+#middle-centre {
+    transform: translateX(-50%) translateY(-50%);
+}
 
 .module-group {
 	position: fixed;

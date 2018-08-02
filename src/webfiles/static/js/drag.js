@@ -9,14 +9,14 @@ function updateTargets(dragging) {
         border = "hidden";
     }
     //
-    var targets = document.getElementsByClassName("bundle-group")
+    var targets = document.getElementsByClassName("module-group")
     for (var i = 0; i < targets.length; i++) {
         targets[i].style.border = border;
     }
 }
 
 function getTarget(target) {
-    if (target.classList.contains("bundle-group")) {
+    if (target.classList.contains("module-group")) {
         return target;
     } else {
         return getTarget(target.parentElement);

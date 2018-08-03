@@ -1,6 +1,6 @@
-function module_init(service, bundle, index, url=false, dividerTop=false, dividerBottom=false) {
+function module_init(module, bundle, index, url=false) {
     //
-    var moduleId = service + "-" + generateId(10);
+    var moduleId = module + "-" + generateId(10);
     //
     var moduleDiv = document.createElement("DIV");
     moduleDiv.className = "module";
@@ -11,35 +11,41 @@ function module_init(service, bundle, index, url=false, dividerTop=false, divide
     moduleDiv.ondragend = function(){dragstop(event);};
     document.getElementById(bundle).appendChild(moduleDiv);
     //
-    switch(service) {
+    switch(module) {
+        case "divider":
+            document.getElementById(moduleId).appendChild(createDivider(moduleId));
+            img = false
+            break;
         case "clock":
-            startClock(moduleId, dividerTop, dividerBottom);
+            startClock(moduleId);
             img = "module_clock.png";
             break;
         case "weather":
-            startWeather(moduleId, url, dividerTop, dividerBottom);
+            startWeather(moduleId, url);
             img = "module_weather.png";
             break;
         case "news":
-            startNews(moduleId, url, dividerTop, dividerBottom);
+            startNews(moduleId, url);
             img = "module_news.png";
             break;
         case "icloud-events":
-            startEvents(moduleId, url, dividerTop, dividerBottom);
+            startEvents(moduleId, url);
             img = "module_calendar.png";
             break;
         case "icloud-birthdays":
-            startBirthdays(moduleId, url, dividerTop, dividerBottom);
+            startBirthdays(moduleId, url);
             img = "module_birthday.png";
             break;
         default:
             return false
     }
     //
-    var imgBtn = document.createElement("IMG");
-    imgBtn.className = "btn_img btn_pointer grayscale";
-    imgBtn.src = "/images/modules/" + img;
-    imgBtn.onclick = function(){toggleView(moduleId);};
-    document.getElementById("btn_bar").appendChild(imgBtn);
+    if (img) {
+        var imgBtn = document.createElement("IMG");
+        imgBtn.className = "btn_img btn_pointer grayscale";
+        imgBtn.src = "/images/modules/" + img;
+        imgBtn.onclick = function(){toggleView(moduleId);};
+        document.getElementById("btn_bar").appendChild(imgBtn);
+    }
     //
 }

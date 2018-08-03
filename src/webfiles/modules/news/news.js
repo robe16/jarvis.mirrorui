@@ -1,4 +1,4 @@
-function startNews(moduleId, serviceIP, dividerTop, dividerBottom) {
+function startNews(moduleId, serviceIP) {
 	
 	function GetNews() {
 		// Retrieve news from server
@@ -79,9 +79,7 @@ function startNews(moduleId, serviceIP, dividerTop, dividerBottom) {
 		//
 		//
         document.getElementById(moduleId).innerHTML = "";
-        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
         document.getElementById(moduleId).appendChild(newsDiv);
-        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
         //
 	}
 	

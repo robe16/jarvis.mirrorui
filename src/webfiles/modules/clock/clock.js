@@ -1,4 +1,4 @@
-function startClock(moduleId, dividerTop, dividerBottom) {
+function startClock(moduleId) {
 
 	function GetClock() {
 	    //
@@ -18,9 +18,7 @@ function startClock(moduleId, dividerTop, dividerBottom) {
 		datetimeDiv.appendChild(timeDiv);
 		//
         document.getElementById(moduleId).innerHTML = "";
-        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
         document.getElementById(moduleId).appendChild(datetimeDiv);
-        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
 	}
 
 	GetClock();

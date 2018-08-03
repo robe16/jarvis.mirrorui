@@ -1,4 +1,4 @@
-function startWeather(moduleId, serviceIP, dividerTop, dividerBottom) {
+function startWeather(moduleId, serviceIP) {
 	
 	function GetWeather() {
 		// Retrieve weather from server
@@ -360,9 +360,7 @@ function startWeather(moduleId, serviceIP, dividerTop, dividerBottom) {
 		}
 		//
         document.getElementById(moduleId).innerHTML = "";
-        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
 		document.getElementById(moduleId).appendChild(weatherDiv);
-        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
         //
 	}
 	

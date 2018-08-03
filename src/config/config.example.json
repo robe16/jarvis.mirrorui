@@ -10,25 +10,29 @@
     "modules": [
       {
         "service": "clock",
-        "bundle": "top-left-1",
+        "bundle": "top-left",
         "index": 0
       },
       {
         "service": "icloud-events",
-        "bundle": "top-left-2",
+        "bundle": "top-left",
         "index": 1,
         "url": "http://192.168.0.xxx:1001"
       },
       {
+        "service": "divider",
+        "bundle": "top-left",
+        "index": 2
+      },
+      {
         "service": "icloud-birthdays",
-        "bundle": "top-left-3",
-        "index": 2,
-        "url": "http://192.168.0.xxx:1001",
-        "dividerTop": true
+        "bundle": "top-left",
+        "index": 3,
+        "url": "http://192.168.0.xxx:1001"
       },
       {
         "service": "weather",
-        "bundle": "top-right-1",
+        "bundle": "top-right",
         "index": 0,
         "url": "http://192.168.0.xxx:1002"
       },

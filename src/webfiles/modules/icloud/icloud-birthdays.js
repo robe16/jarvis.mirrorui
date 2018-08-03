@@ -1,4 +1,4 @@
-function startBirthdays(moduleId, serviceIP, dividerTop, dividerBottom) {
+function startBirthdays(moduleId, serviceIP) {
 
 	function getBirthdays() {
 		// Retrieve birthdays from server
@@ -122,9 +122,7 @@ function startBirthdays(moduleId, serviceIP, dividerTop, dividerBottom) {
 		}
 		//
         document.getElementById(moduleId).innerHTML = "";
-        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
         document.getElementById(moduleId).appendChild(birthdayDiv);
-        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
         //
 	}
 

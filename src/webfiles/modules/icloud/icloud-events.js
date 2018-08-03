@@ -1,6 +1,6 @@
 var calColours = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "brown", "teal", "white", "black"]
 
-function startEvents(serviceId, serviceIP, dividerTop, dividerBottom) {
+function startEvents(moduleId, serviceIP, dividerTop, dividerBottom) {
 
 	function getEvents() {
 		// Retrieve events from server
@@ -191,10 +191,10 @@ function startEvents(serviceId, serviceIP, dividerTop, dividerBottom) {
 		    //
 		}
 		//
-        document.getElementById(serviceId).innerHTML = "";
-        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
-        document.getElementById(serviceId).appendChild(eventsDiv);
-        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
+        document.getElementById(moduleId).innerHTML = "";
+        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
+        document.getElementById(moduleId).appendChild(eventsDiv);
+        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
         //
 	}
 

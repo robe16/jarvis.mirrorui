@@ -22,7 +22,7 @@ def get_ui_module(request, service, filename):
         args['description'] = '-'
         log_inbound(**args)
         #
-        root = os.path.join(os.path.dirname(__file__), '..', 'webfiles/services/{service}'.format(service=service))
+        root = os.path.join(os.path.dirname(__file__), '..', 'webfiles/modules/{service}'.format(service=service))
         #
         response = static_file(filename, root=root)
         response.status = status

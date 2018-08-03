@@ -40,9 +40,9 @@ def start_bottle():
     def api_get_ui_image(type, filename):
         return get_ui_image(request, type, filename)
 
-    @get('/services/<service>/<filename>')
-    def api_get_ui_module(service, filename):
-        return get_ui_module(request, service, filename)
+    @get('/modules/<module>/<filename>')
+    def api_get_ui_module(module, filename):
+        return get_ui_module(request, module, filename)
 
     ################################################################################################
 

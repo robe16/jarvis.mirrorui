@@ -1,4 +1,4 @@
-function startClock(serviceId, dividerTop, dividerBottom) {
+function startClock(moduleId, dividerTop, dividerBottom) {
 
 	function GetClock() {
 	    //
@@ -17,10 +17,10 @@ function startClock(serviceId, dividerTop, dividerBottom) {
 		datetimeDiv.appendChild(dateDiv);
 		datetimeDiv.appendChild(timeDiv);
 		//
-        document.getElementById(serviceId).innerHTML = "";
-        if (dividerTop) {document.getElementById(serviceId).appendChild(dividerDiv());}
-        document.getElementById(serviceId).appendChild(datetimeDiv);
-        if (dividerBottom) {document.getElementById(serviceId).appendChild(dividerDiv());}
+        document.getElementById(moduleId).innerHTML = "";
+        if (dividerTop) {document.getElementById(moduleId).appendChild(dividerDiv());}
+        document.getElementById(moduleId).appendChild(datetimeDiv);
+        if (dividerBottom) {document.getElementById(moduleId).appendChild(dividerDiv());}
 	}
 
 	GetClock();

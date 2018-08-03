@@ -33,7 +33,7 @@ def get_ui_config(request):
         for bundleKey in tempModules:
             modules = tempModules[bundleKey]
             #
-            for moduleKey in sorted(modules.iterkeys()):
+            for moduleKey in sorted(modules.keys()):
                 module = modules[moduleKey]
                 #
                 service = module['service']

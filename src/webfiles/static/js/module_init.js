@@ -3,13 +3,17 @@ function module_init(module, bundle, index, url=false) {
     var moduleId = module + "-" + generateId(10);
     //
     var moduleDiv = document.createElement("DIV");
-    moduleDiv.className = "module";
     moduleDiv.id = moduleId;
+    document.getElementById(bundle).appendChild(moduleDiv);
+    var moduleDiv = document.getElementById(moduleId);
+    //
+    moduleDiv.className = "module";
+    moduleDiv.setAttribute("moduletype", module);
+    if (url) {moduleDiv.setAttribute("moduleurl", url);}
     moduleDiv.style.display = "block";
     moduleDiv.draggable = true;
     moduleDiv.ondragstart = function(){dragstart(event);};
     moduleDiv.ondragend = function(){dragstop(event);};
-    document.getElementById(bundle).appendChild(moduleDiv);
     //
     switch(module) {
         case "divider":

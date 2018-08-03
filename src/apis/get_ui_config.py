@@ -10,8 +10,6 @@ from resources.global_resources.variables import *
 
 def get_ui_config(request):
     #
-    strModuleInit = "module_init('{service}', '{bundle}', {index}, '{url}', {dividerTop}, {dividerBottom});"
-    #
     args = get_request_log_args(request)
     #
     try:
@@ -43,23 +41,14 @@ def get_ui_config(request):
                 index = module['index']
                 #
                 try:
-                    url = module['url']
+                    r += "module_init('{service}', '{bundle}', {index}, '{url}');".format(service=service,
+                                                                                      bundle=bundle,
+                                                                                      index=index,
+                                                                                      url=module['url'])
                 except:
-                    url = False
-                try:
-                    dividerTop = module['dividerTop']
-                except:
-                    dividerTop = False
-                try:
-                    dividerBottom = module['dividerBottom']
-                except:
-                    dividerBottom = False
-                r += strModuleInit.format(service=service,
-                                          bundle=bundle,
-                                          index=index,
-                                          url=url,
-                                          dividerTop=str(dividerTop).lower(),
-                                          dividerBottom=str(dividerBottom).lower())
+                    r += "module_init('{service}', '{bundle}', {index});".format(service=service,
+                                                                                 bundle=bundle,
+                                                                                 index=index)
                 #
         r += '}'
         #

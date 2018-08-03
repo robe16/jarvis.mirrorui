@@ -9,10 +9,15 @@ function updateTargets(dragging) {
         border = "hidden";
     }
     //
-    var targets = document.getElementsByClassName("module-group")
+    var targets = document.getElementsByClassName("module-group");
     for (var i = 0; i < targets.length; i++) {
         targets[i].style.border = border;
     }
+    //
+    if (!dragging) {
+        updateModules();
+    }
+    //
 }
 
 function getTarget(target) {

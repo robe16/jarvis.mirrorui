@@ -81,3 +81,9 @@ def get_cfg_details_modules():
 
 def get_cfg_port():
     return get_config_json()['port']
+
+
+def set_cfg_details_modules(modules):
+    cfg = get_config_json()
+    cfg['details']['modules'] = modules
+    return write_config(cfg)

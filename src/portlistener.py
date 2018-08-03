@@ -1,4 +1,4 @@
-from bottle import get
+from bottle import get, post
 from bottle import request, run
 
 from config.config import get_cfg_port
@@ -12,6 +12,7 @@ from apis.get_ui_config import get_ui_config
 from apis.get_ui_resource import get_ui_resource
 from apis.get_ui_image import get_ui_image
 from apis.get_ui_module import get_ui_module
+from apis.post_ui_modules import post_ui_modules
 
 
 def start_bottle():
@@ -43,6 +44,10 @@ def start_bottle():
     @get('/modules/<module>/<filename>')
     def api_get_ui_module(module, filename):
         return get_ui_module(request, module, filename)
+
+    @post('/modules')
+    def api_post_ui_config():
+        return post_ui_modules(request)
 
     ################################################################################################
 

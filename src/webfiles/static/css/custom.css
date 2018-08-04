@@ -45,3 +45,17 @@ body {
 .material-text-light-secondary {color: #CCC;}
 .material-text-light-divider {color: #999;}
 .material-text-light-disabled {color: #333;}
+
+.dropdown-menu {
+    background: #ccc;
+    margin-right: 10px;
+}
+.dropdown-item {
+    display: block;
+    padding: 5px;
+    color: #000;
+}
+.dropdown-divider {
+    background-color: #888;
+    height: 1;
+}

@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
 		<script src="static/js/jquery.js"></script>
 		<script src="static/js/bootstrap.js"></script>
-		<script src="static/js/bootstrap.min.js"></script>
 		<script src="static/js/moment.js"></script>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -64,7 +63,14 @@
 		<!-- -->
 		<div id="btn_menu_group" class="btn_menu_group">
 			<img id="trash" class="btn_img" src="/images/buttons/button_trash.png" style="display: none;" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<img id="btn_menu" class="btn_img btn_pointer grayscale" src="/images/buttons/button_menu.png">
+			<div class="btn-group dropup">
+				<img id="btn_menu" class="btn_img btn_pointer grayscale dropdown-toggle" src="/images/buttons/button_menu.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="dropdown-menu dropdown-menu-right">
+					<a class="dropdown-item" href="#">Add new module</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Information</a>
+				</div>
+			</div>
 		</div>
 		<!-- -->
 	</body>

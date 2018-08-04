@@ -27,6 +27,7 @@
 		<script src="static/js/module_toggle.js"></script>
 		<script src="static/js/module_init.js"></script>
 		<script src="static/js/modules_send.js"></script>
+		<script src="static/js/info.js"></script>
 		<!-- Module scripts -->
 		<script src="modules/clock/clock.js"></script>
 		<script src="modules/news/news.js"></script>
@@ -68,9 +69,18 @@
 				<div class="dropdown-menu dropdown-menu-right">
 					<a class="dropdown-item" href="#">Add new module</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Information</a>
+					<a class="dropdown-item" href="#" onclick="infoToggle();">Information</a>
 				</div>
 			</div>
+		</div>
+		<!-- -->
+		<div id="information" class="info" style="display: none;">
+			<h2>Jarvis: Mirror UI</h2>
+			<p>UI developed for use with the Jarvis ecosystem.</p>
+			<p>Use the icons at the bottom of the display to show and hide modules.</p>
+			<p>Modules can be re-positioned using drag-and-drop functionality.</p>
+			<p>For more information, see https://github.com/robe16/jarvis.documentation/wiki</p>
+			<img class="btn_img btn_info_close right" src="/images/buttons/button_cross.png" onclick="infoToggle();">
 		</div>
 		<!-- -->
 	</body>

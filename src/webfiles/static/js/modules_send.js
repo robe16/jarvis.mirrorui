@@ -1,4 +1,4 @@
-function updateModules() {
+function modulesSendUpdate() {
     //
     var config = {};
     config.modules = [];
@@ -6,11 +6,11 @@ function updateModules() {
     var moduleGroups = document.getElementsByClassName("module-group");
     //
     for (var i = 0; i < moduleGroups.length; i++) {
-        bundle = moduleGroups[i].id;
+        group = moduleGroups[i].id;
         modules = moduleGroups[i].childNodes;
         for (var j = 0; j < modules.length; j++) {
-            service = modules[j].getAttribute("moduletype");
-            m = {"bundle": bundle, "service": service, "index": j};
+            module = modules[j].getAttribute("moduletype");
+            m = {"group": group, "module": module, "index": j};
             if (modules[j].hasAttribute("moduleurl")) {m.url = modules[j].getAttribute("moduleurl");}
             config.modules.push(m);
         }

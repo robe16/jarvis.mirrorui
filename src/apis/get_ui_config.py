@@ -24,30 +24,30 @@ def get_ui_config(request):
         modules = get_cfg_details_modules()
         tempModules = {}
         for module in modules:
-            if not module['bundle'] in tempModules:
-                tempModules[module['bundle']] = {}
-            tempModules[module['bundle']][module['index']] = module
+            if not module['group'] in tempModules:
+                tempModules[module['group']] = {}
+            tempModules[module['group']][module['index']] = module
         #
         r = 'window.onload=function() {'
         #
-        for bundleKey in tempModules:
-            modules = tempModules[bundleKey]
+        for groupKey in tempModules:
+            modules = tempModules[groupKey]
             #
             for moduleKey in sorted(modules.keys()):
                 module = modules[moduleKey]
                 #
-                service = module['service']
-                bundle = module['bundle']
+                moduleType = module['module']
+                group = module['group']
                 index = module['index']
                 #
                 try:
-                    r += "module_init('{service}', '{bundle}', {index}, '{url}');".format(service=service,
-                                                                                      bundle=bundle,
-                                                                                      index=index,
-                                                                                      url=module['url'])
+                    r += "module_init('{module}', '{group}', {index}, '{url}');\n".format(module=moduleType,
+                                                                                          group=group,
+                                                                                          index=index,
+                                                                                          url=module['url'])
                 except:
-                    r += "module_init('{service}', '{bundle}', {index});".format(service=service,
-                                                                                 bundle=bundle,
+                    r += "module_init('{module}', '{group}', {index});\n".format(module=moduleType,
+                                                                                 group=group,
                                                                                  index=index)
                 #
         r += '}'

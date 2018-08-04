@@ -19,7 +19,7 @@ function updateTargets(dragging) {
     document.getElementById("trash").style.display = trash;
     //
     if (!dragging) {
-        updateModules();
+        modulesSendUpdate();
     }
     //
 }

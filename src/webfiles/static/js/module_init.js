@@ -1,10 +1,10 @@
-function module_init(module, bundle, index, url=false) {
+function module_init(module, group, index, url=false) {
     //
     var moduleId = module + "-" + generateId(10);
     //
     var moduleDiv = document.createElement("DIV");
     moduleDiv.id = moduleId;
-    document.getElementById(bundle).appendChild(moduleDiv);
+    document.getElementById(group).appendChild(moduleDiv);
     var moduleDiv = document.getElementById(moduleId);
     //
     moduleDiv.className = "module";

@@ -9,36 +9,36 @@
     "details": {
     "modules": [
       {
-        "service": "clock",
-        "bundle": "top-left",
+        "module": "clock",
+        "group": "top-left",
         "index": 0
       },
       {
-        "service": "icloud-events",
-        "bundle": "top-left",
+        "module": "icloud-events",
+        "group": "top-left",
         "index": 1,
         "url": "http://192.168.0.xxx:1001"
       },
       {
-        "service": "divider",
-        "bundle": "top-left",
+        "module": "divider",
+        "group": "top-left",
         "index": 2
       },
       {
-        "service": "icloud-birthdays",
-        "bundle": "top-left",
+        "module": "icloud-birthdays",
+        "group": "top-left",
         "index": 3,
         "url": "http://192.168.0.xxx:1001"
       },
       {
-        "service": "weather",
-        "bundle": "top-right",
+        "module": "weather",
+        "group": "top-right",
         "index": 0,
         "url": "http://192.168.0.xxx:1002"
       },
       {
-        "service": "news",
-        "bundle": "bottom-left",
+        "module": "news",
+        "group": "bottom-left",
         "index": 0,
         "url": "http://192.168.0.xxx:1003"
       }

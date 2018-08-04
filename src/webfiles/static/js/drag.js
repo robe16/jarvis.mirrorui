@@ -5,14 +5,18 @@ function allowDrop(ev) {
 function updateTargets(dragging) {
     if (dragging) {
         border = "dashed";
+        trash = "inline-block";
     } else {
         border = "hidden";
+        trash = "none";
     }
     //
     var targets = document.getElementsByClassName("module-group");
     for (var i = 0; i < targets.length; i++) {
         targets[i].style.border = border;
     }
+    //
+    document.getElementById("trash").style.display = trash;
     //
     if (!dragging) {
         updateModules();
@@ -40,6 +44,13 @@ function dragstop(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var target = getTarget(ev.target);
-    target.appendChild(document.getElementById(data));
+    //
+    if (ev.target.id == "trash") {
+        document.getElementById(data).remove();
+    } else {
+        var target = getTarget(ev.target);
+        if (target) {
+            target.appendChild(document.getElementById(data));
+        }
+    }
 }

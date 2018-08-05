@@ -45,17 +45,20 @@ function startHeating(moduleId, serviceIP) {
             if (thermOnline) {
                 //
                 var imgThermIcon = document.createElement("IMG");
-                imgThermIcon.className = "grayscale nest_thermIcon";
-                imgThermIcon.src = "/images/icons/icon_nest_thermostat.png";
+                imgThermIcon.className = "nest_thermIcon";
+                if (thermState=="heating") {imgThermIcon.src = "/images/icons/icon_nest_thermostat_heat.png";}
+                else if (thermState=="cooling") {imgThermIcon.src = "/images/icons/icon_nest_thermostat_cool.png";}
+                else if (thermState=="off") {imgThermIcon.src = "/images/icons/icon_nest_thermostat_off.png";}
+                else {imgThermIcon.src = "/images/icons/icon_nest_thermostat_offline.png";}
                 //
-                var pThermState = document.createElement("P");
-                pThermState.className = "nest_tempState";
-                pThermState.innerHTML = thermState;
+//                var pThermState = document.createElement("P");
+//                pThermState.className = "nest_tempState";
+//                pThermState.innerHTML = thermState;
                 //
                 var divThermIcon = document.createElement("DIV");
                 divThermIcon.className = "nest_therm_detail";
                 divThermIcon.appendChild(imgThermIcon);
-                divThermIcon.appendChild(pThermState);
+//                divThermIcon.appendChild(pThermState);
                 //
                 //
                 var divThermName = document.createElement("DIV");

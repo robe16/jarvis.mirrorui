@@ -1,24 +1,16 @@
-.weather-container {
-    max-width: 24em;
-}
+.weather-container {}
 
 /* row styles */
 
 .weather_row_today {
     font-size: 16;
-    margin: 0px 10px;
 }
 .weather_row_hourly {
     margin-right: 15px;
     font-size: 14;
-    margin: 0px 10px;
-}
-.weather_row_divider {
-    margin: 0px 10px;
 }
 .weather_row_day {
     font-size: 16;
-    margin: 0px 10px;
 }
 
 /* styles for the 'large' contents at top of weather block for today */

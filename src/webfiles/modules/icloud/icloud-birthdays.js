@@ -49,10 +49,10 @@ function startBirthdays(moduleId, serviceIP) {
 		    } else {
                 //
                 var divBirthdayDate = document.createElement("DIV");
-                divBirthdayDate.className = "col-xs-2 material-text-light-primary icloud_birthday-date";
+                divBirthdayDate.className = "col-xs-3 material-text-light-primary icloud_birthday-date";
                 divBirthdayDate.innerHTML = birthdayDate;
                 var divBirthdayName = document.createElement("DIV");
-                divBirthdayName.className = "col-xs-10 icloud_birthday-name";
+                divBirthdayName.className = "col-xs-9 icloud_birthday-name";
                 divBirthdayName.innerHTML = birthdayName;
                 //
                 var rowDiv = document.createElement("DIV");
@@ -86,7 +86,7 @@ function startBirthdays(moduleId, serviceIP) {
             for (b in todaysBirthdays) {
                 //
                 var divBirthdayName = document.createElement("DIV");
-                divBirthdayName.className = "col-xs-10 col-xs-offset-2 icloud_birthday-name";
+                divBirthdayName.className = "col-xs-9 col-xs-offset-3 icloud_birthday-name";
                 divBirthdayName.innerHTML = todaysBirthdays[b];
                 //
                 var rowDiv = document.createElement("DIV");

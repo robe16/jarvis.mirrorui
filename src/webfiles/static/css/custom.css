@@ -1,9 +1,8 @@
-html {
-    font-family: Roboto;
-}
+html {}
 body {
-    font-family: Roboto;
     cursor: none;
+    font-family: Roboto;
+    font-size: 14px;
 }
 
 .divider {
@@ -11,6 +10,7 @@ body {
 	margin: 5px;
 }
 
+.row {margin: 0;}
 
 .material-shadow {
     -webkit-box-shadow: 2px 2px 7px 0px rgba(50, 50, 50, 0.7);

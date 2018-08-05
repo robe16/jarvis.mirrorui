@@ -13,19 +13,16 @@
 
 .icloud_birthday-title {
     font-size: 16;
-    font-weight: 700;
     padding-top: 5px;
 }
 
 .icloud_birthday-name {
     font-size: 14;
-    font-weight: 700;
 }
 
 .icloud_birthday-date {
     font-size: 14;
     padding: 0 2px 0 2px;
-    font-weight: 700;
 }
 
 
@@ -45,25 +42,21 @@
 
 .icloud_events-title {
     font-size: 16;
-    font-weight: 700;
     padding-top: 5px;
 }
 
 .icloud_events-date {
     padding: 0 2px 0 2px;
     font-size: 14;
-    font-weight: 700;
 }
 
 .icloud_events-location {
     font-size: 12;
-    font-weight: 700;
 }
 
 .icloud_events-name-and-blob {
     display: inline-block;
     font-size: 14;
-    font-weight: 700;
 }
 
 .icloud_events-blob {

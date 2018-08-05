@@ -2,6 +2,7 @@ body {
 	background-color: black;
 	color: white;
     font-family: Roboto;
+    font-weight: 700;
 }
 
 .top {
@@ -41,7 +42,9 @@ body {
 	padding: 10px;
 }
 
-.module {}
+.module {
+    padding: 0;
+}
 
 
 .btn_bar {

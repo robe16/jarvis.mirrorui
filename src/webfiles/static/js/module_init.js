@@ -40,6 +40,14 @@ function module_init(module, group, index, url=false) {
             startBirthdays(moduleId, url);
             img = "module_birthday.png";
             break;
+        case "nest-heating":
+            startHeating(moduleId, url);
+            img = "module_heating.png";
+            break;
+        case "nest-smoke":
+            // startSmoke(moduleId, url);
+            img = "module_smoke.png";
+            break;
         default:
             return false
     }

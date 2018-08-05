@@ -1,0 +1,33 @@
+.nest_heating-container {
+    margin: 0;
+    padding: 0;
+}
+
+.nest_therm {}
+
+.nest_thermIcon {
+    height: 3em;
+    width: 3em;
+    padding: 0;
+}
+
+.nest_thermName {
+    display: block;
+    font-size: 1.5em;
+}
+
+.nest_temp {
+    display: block;
+}
+
+.nest_tempValue {
+    display: inline-block;
+    margin: 0;
+}
+
+.nest_tempUnit {
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: 100;
+    margin: 0;
+}

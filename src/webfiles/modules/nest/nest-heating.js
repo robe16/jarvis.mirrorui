@@ -45,8 +45,18 @@ function startHeating(moduleId, serviceIP) {
             if (thermOnline) {
                 //
                 var imgThermIcon = document.createElement("IMG");
-                imgThermIcon.className = "col-xs-2 grayscale nest_thermIcon";
+                imgThermIcon.className = "grayscale nest_thermIcon";
                 imgThermIcon.src = "/images/icons/icon_nest_thermostat.png";
+                //
+                var pThermState = document.createElement("P");
+                pThermState.className = "nest_tempState";
+                pThermState.innerHTML = thermState;
+                //
+                var divThermIcon = document.createElement("DIV");
+                divThermIcon.className = "nest_therm_detail";
+                divThermIcon.appendChild(imgThermIcon);
+                divThermIcon.appendChild(pThermState);
+                //
                 //
                 var divThermName = document.createElement("DIV");
                 divThermName.className = "nest_thermName material-text-light-primary";
@@ -74,11 +84,12 @@ function startHeating(moduleId, serviceIP) {
                 divThermTemp.appendChild(divThermTempTarget);
                 //
                 var divThermDetails = document.createElement("DIV");
-                divThermDetails.className = "col-xs-8";
+                divThermDetails.className = "nest_therm_detail";
                 divThermDetails.appendChild(divThermName);
                 divThermDetails.appendChild(divThermTemp);
                 //
-                thermDiv.appendChild(imgThermIcon);
+                //
+                thermDiv.appendChild(divThermIcon);
                 thermDiv.appendChild(divThermDetails);
                 //
             } else {
@@ -95,5 +106,5 @@ function startHeating(moduleId, serviceIP) {
 	}
 
 	getThermostats();
-	setInterval(getThermostats, 150000); //15minutes
+	setInterval(getThermostats, 30000); //30 seconds
 }

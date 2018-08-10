@@ -155,24 +155,23 @@ function startEvents(moduleId, serviceIP) {
 		}
 		keys_dates.sort();
 		//
-        //var fromDateObj = moment();
+        var fromDateObj = moment(moment().format("YYYY-MM-DD"), "YYYY-MM-DD");
         var toDateObj = moment().add(7, 'days');
+        var todayDateObj = moment().format("dddd Do MMM");
+        var tomorrowDateObj = moment().add(1, 'days').format("dddd Do MMM");
 		//
 		for (i = 0; i < keys_dates.length; i++) {
             k_d = keys_dates[i];
             //
             var itemDateObj = moment(k_d, "YYYY-MM-DD")
             //
-            var _date = itemDateObj.format("dddd Do MMM");
-            //
-            if (itemDateObj >= now && itemDateObj <= toDateObj) {
+            if (itemDateObj >= fromDateObj && itemDateObj <= toDateObj) {
                 //
-                var today = moment(today).format("dddd Do MMM");
-                var tomorrow = moment(today).add(1, 'days').format("dddd Do MMM");
+                var _date = itemDateObj.format("dddd Do MMM");
                 //
-                if (_date == today) {
+                if (_date == todayDateObj) {
                     var _date = "Today";
-                } else if (_date == tomorrow) {
+                } else if (_date == tomorrowDateObj) {
                     var _date = "Tomorrow";
                 } else {
                     var _date = moment(k_d, "YYYY-MM-DD").format("dddd Do");

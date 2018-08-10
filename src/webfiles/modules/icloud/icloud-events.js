@@ -155,38 +155,48 @@ function startEvents(moduleId, serviceIP) {
 		}
 		keys_dates.sort();
 		//
+        //var fromDateObj = moment();
+        var toDateObj = moment().add(7, 'days');
+		//
 		for (i = 0; i < keys_dates.length; i++) {
             k_d = keys_dates[i];
             //
-            var divEventTitle = document.createElement("DIV");
-            divEventTitle.className = "row icloud_events-row material-text-light-secondary icloud_events-title";
+            var itemDateObj = moment(k_d, "YYYY-MM-DD")
             //
-            _date = moment(k_d, "YYYY-MM-DD").format("dddd Do MMM");
-            var today = moment(today).format("dddd Do MMM");
-            var tomorrow = moment(today).add(1, 'days').format("dddd Do MMM");
+            var _date = itemDateObj.format("dddd Do MMM");
             //
-            if (_date == today) {
-                var _date = "Today";
-            } else if (_date == tomorrow) {
-                var _date = "Tomorrow";
-            } else {
-                var _date = moment(k_d, "YYYY-MM-DD").format("dddd Do");
-            }
-            divEventTitle.innerHTML = _date;
-            //
-            eventsDiv.appendChild(divEventTitle);
-            //
-            var keys_events = [];
-            for (k_t in tempEvents[k_d]) {
-              if (tempEvents[k_d].hasOwnProperty(k_t)) {
-                keys_events.push(k_t);
-              }
-            }
-            keys_events.sort();
-            //
-            for (j = 0; j < keys_events.length; j++) {
-                k_t = keys_events[j];
-                eventsDiv.appendChild(tempEvents[k_d][k_t]);
+            if (itemDateObj >= now && itemDateObj <= toDateObj) {
+                //
+                var today = moment(today).format("dddd Do MMM");
+                var tomorrow = moment(today).add(1, 'days').format("dddd Do MMM");
+                //
+                if (_date == today) {
+                    var _date = "Today";
+                } else if (_date == tomorrow) {
+                    var _date = "Tomorrow";
+                } else {
+                    var _date = moment(k_d, "YYYY-MM-DD").format("dddd Do");
+                }
+                //
+                var divEventTitle = document.createElement("DIV");
+                divEventTitle.className = "row icloud_events-row material-text-light-secondary icloud_events-title";
+                divEventTitle.innerHTML = _date;
+                //
+                eventsDiv.appendChild(divEventTitle);
+                //
+                var keys_events = [];
+                for (k_t in tempEvents[k_d]) {
+                  if (tempEvents[k_d].hasOwnProperty(k_t)) {
+                    keys_events.push(k_t);
+                  }
+                }
+                keys_events.sort();
+                //
+                for (j = 0; j < keys_events.length; j++) {
+                    k_t = keys_events[j];
+                    eventsDiv.appendChild(tempEvents[k_d][k_t]);
+                }
+                //
             }
 		    //
 		}

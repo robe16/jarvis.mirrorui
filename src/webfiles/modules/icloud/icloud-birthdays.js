@@ -75,13 +75,15 @@ function startBirthdays(moduleId, serviceIP) {
             }
 		}
 		//
+        document.getElementById(moduleId).innerHTML = "";
+        //
 		// Create a 'today's birthday' section if a birthday is today
 		if (todaysBirthdays.length > 0) {
 		    //
             var divBirthdayTodayTitle = document.createElement("DIV");
             divBirthdayTodayTitle.className = "row icloud_birthday-row material-text-light-secondary icloud_birthday-title";
             divBirthdayTodayTitle.innerHTML = "Today's birthdays";
-		    document.getElementById(pageLocation).appendChild(divBirthdayTodayTitle);
+		    document.getElementById(moduleId).appendChild(divBirthdayTodayTitle);
             //
             for (b in todaysBirthdays) {
                 //
@@ -97,7 +99,7 @@ function startBirthdays(moduleId, serviceIP) {
                 //
             }
             //
-            document.getElementById(pageLocation).appendChild(rowDiv);
+            document.getElementById(moduleId).appendChild(rowDiv);
             //
 		}
         //
@@ -121,7 +123,6 @@ function startBirthdays(moduleId, serviceIP) {
 		  birthdayDiv.appendChild(tempBirthdays[k]);
 		}
 		//
-        document.getElementById(moduleId).innerHTML = "";
         document.getElementById(moduleId).appendChild(birthdayDiv);
         //
 	}

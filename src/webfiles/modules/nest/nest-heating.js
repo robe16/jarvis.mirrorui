@@ -58,7 +58,7 @@ function startHeating(moduleId, serviceIP) {
 //                pThermState.innerHTML = thermState;
                 //
                 var divThermIcon = document.createElement("DIV");
-                divThermIcon.className = "col-xs-3";
+                divThermIcon.className = "col-xs-3 nest_thermDivs";
                 divThermIcon.appendChild(imgThermIcon);
 //                divThermIcon.appendChild(pThermState);
                 //
@@ -89,34 +89,30 @@ function startHeating(moduleId, serviceIP) {
                 divThermTemp.appendChild(divThermTempTarget);
                 //
                 var divThermDetails = document.createElement("DIV");
-                divThermDetails.className = "col-xs-6";
+                divThermDetails.className = "col-xs-7 nest_thermDivs";
                 divThermDetails.appendChild(divThermName);
                 divThermDetails.appendChild(divThermTemp);
                 //
+                var divThermDetailsLeafWater = document.createElement("DIV");
+                divThermDetailsLeafWater.className = "col-xs-2 nest_thermDivs";
                 //
                 if (thermWater) {
-//                var imgThermWater = document.createElement("IMG");
-//                imgThermWater.className = "nest_thermIconDetails";
-//                imgThermWater.src = "/images/icons/icon_nest_water_heating.png";
+//                    var imgThermWater = document.createElement("IMG");
+//                    imgThermWater.className = "nest_thermIcon";
+//                    imgThermWater.src = "/images/icons/icon_nest_water_heating.png";
+//                    divThermDetailsLeafWater.appendChild(imgThermWater);
                 }
                 //
                 if (thermLeaf) {
                     var imgThermLeaf = document.createElement("IMG");
-                    imgThermLeaf.className = "nest_thermIconDetails";
+                    imgThermLeaf.className = "nest_thermIcon";
                     imgThermLeaf.src = "/images/icons/icon_nest_leaf.png";
-                }
-                //
-                if (thermLeaf || thermWater) {
-                    var divThermDetailsLeafWater = document.createElement("DIV");
-                    divThermDetailsLeafWater.className = "col-xs-3";
-//                    divThermDetailsLeafWater.appendChild(imgThermWater);
                     divThermDetailsLeafWater.appendChild(imgThermLeaf);
                 }
                 //
-                //
                 thermDiv.appendChild(divThermIcon);
                 thermDiv.appendChild(divThermDetails);
-                if (thermLeaf || thermWater) {thermDiv.appendChild(divThermDetailsLeafWater);}
+                thermDiv.appendChild(divThermDetailsLeafWater);
                 //
             } else {
                 //

@@ -4,16 +4,19 @@
 }
 
 .nest_therm {}
-.nest_therm_detail {
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-}
 
 .nest_thermIcon {
     display: block;
     height: 4em;
     width: 4em;
+    padding: 0;
+    margin: auto;
+}
+
+.nest_thermIconDetails {
+    display: block;
+    height: 2em;
+    width: 2em;
     padding: 0;
     margin: auto;
 }

@@ -10,7 +10,7 @@ function startHeating(moduleId, serviceIP) {
 	function createThermostats(data) {
 		//
 		var thermostatsDiv = document.createElement("DIV");
-		thermostatsDiv.className = "container nest_heating-container";
+		thermostatsDiv.className = "container-fluid nest_heating-container";
 		//
 		// Parse json
 		dataJson = JSON.parse(data);
@@ -24,6 +24,8 @@ function startHeating(moduleId, serviceIP) {
 		    // var thermId = thermostat.device_id;
 			var thermOnline = thermostat.is_online;
 		    var thermName = thermostat.name;
+			var thermLeaf = thermostat.has_leaf;
+			var thermWater = false;  // var thermWater = thermostat.water_heating;
 		    var thermTempScale = thermostat.temperature_scale;
 		    var thermTempTarget = thermostat["target_temperature_" + thermTempScale.toLowerCase()];
 		    var thermTempCurrent = thermostat["ambient_temperature_" + thermTempScale.toLowerCase()];
@@ -56,7 +58,7 @@ function startHeating(moduleId, serviceIP) {
 //                pThermState.innerHTML = thermState;
                 //
                 var divThermIcon = document.createElement("DIV");
-                divThermIcon.className = "nest_therm_detail";
+                divThermIcon.className = "col-xs-3";
                 divThermIcon.appendChild(imgThermIcon);
 //                divThermIcon.appendChild(pThermState);
                 //
@@ -87,13 +89,34 @@ function startHeating(moduleId, serviceIP) {
                 divThermTemp.appendChild(divThermTempTarget);
                 //
                 var divThermDetails = document.createElement("DIV");
-                divThermDetails.className = "nest_therm_detail";
+                divThermDetails.className = "col-xs-6";
                 divThermDetails.appendChild(divThermName);
                 divThermDetails.appendChild(divThermTemp);
                 //
                 //
+                if (thermWater) {
+//                var imgThermWater = document.createElement("IMG");
+//                imgThermWater.className = "nest_thermIconDetails";
+//                imgThermWater.src = "/images/icons/icon_nest_water_heating.png";
+                }
+                //
+                if (thermLeaf) {
+                    var imgThermLeaf = document.createElement("IMG");
+                    imgThermLeaf.className = "nest_thermIconDetails";
+                    imgThermLeaf.src = "/images/icons/icon_nest_leaf.png";
+                }
+                //
+                if (thermLeaf || thermWater) {
+                    var divThermDetailsLeafWater = document.createElement("DIV");
+                    divThermDetailsLeafWater.className = "col-xs-3";
+//                    divThermDetailsLeafWater.appendChild(imgThermWater);
+                    divThermDetailsLeafWater.appendChild(imgThermLeaf);
+                }
+                //
+                //
                 thermDiv.appendChild(divThermIcon);
                 thermDiv.appendChild(divThermDetails);
+                if (thermLeaf || thermWater) {thermDiv.appendChild(divThermDetailsLeafWater);}
                 //
             } else {
                 //
